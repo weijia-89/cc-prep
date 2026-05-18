@@ -38,6 +38,7 @@ EXAM_DATE = "2026-05-30"
 DAYS = [
     # --- Week 1 (May 18-22): heavy on Domain 4 first, then Domain 2 ---
     dict(w=1, d=1, title="Domain 4 Network Security part 1: OSI, TCP/IP, ports",
+        subtitle="<strong>Acronyms used today:</strong> ISC2 (International Information System Security Certification Consortium), CC (Certified in Cybersecurity), OSI (Open Systems Interconnection), TCP/IP (Transmission Control Protocol / Internet Protocol), NIST SP (National Institute of Standards and Technology Special Publication), IPv4/IPv6 (Internet Protocol version 4 / version 6).",
         focus="You are at 55 percent on Network Security. Frontload it. Today: memorize the OSI 7 layers top-to-bottom (Application, Presentation, Session, Transport, Network, Data Link, Physical) and the top-20 common ports. Use the mnemonic All People Seem To Need Data Processing. Skim NIST SP 800-41 sections 2.1.1-2.1.3 for packet-filter vs stateful vs application firewalls. Tonight: walk Room 4 (Kitchen, Domain 4) slowly; this room is your weakest.",
         citations=[
             ("ISC2 CC Outline 4.1", "OSI and TCP/IP models, IPv4 vs IPv6, ports are all named explicitly"),
@@ -49,6 +50,7 @@ DAYS = [
                ("Memory palace walkthrough", "guide.html#d2-the-cc-memory-palace")]),
 
     dict(w=1, d=2, title="Domain 4 part 2: TLS, IPsec, VPN, network threats",
+        subtitle="<strong>Acronyms used today:</strong> ISC2 CC (Certified in Cybersecurity, by the International Information System Security Certification Consortium), TLS (Transport Layer Security), IPsec (Internet Protocol Security), VPN (Virtual Private Network), AH (Authentication Header), ESP (Encapsulating Security Payload), DoS/DDoS (Denial of Service / Distributed DoS), MITM (man-in-the-middle), ARP (Address Resolution Protocol), DNS (Domain Name System), NIST SP (National Institute of Standards and Technology Special Publication).",
         focus="Today: IPsec Transport vs Tunnel modes (payload only vs entire packet plus new IP header), AH vs ESP (auth-only vs encryption-plus-auth), and the named attack vocabulary (DoS/DDoS, MITM, ARP/DNS spoofing, evil twin, side-channel). Practice naming each: virus needs a host, worm self-propagates, Trojan hides in legitimate-looking software. Tonight: walk Room 4 again, focusing on the fridge (IPsec) and stove burners (firewalls).",
         citations=[
             ("ISC2 CC Outline 4.2", "network threats and attacks list is canonical; memorize each by name"),
@@ -60,6 +62,7 @@ DAYS = [
                ("Memory palace walkthrough", "guide.html#d2-the-cc-memory-palace")]),
 
     dict(w=1, d=3, title="Domain 4 part 3 plus Mock 1 (full 100 questions, 2 hours)",
+        subtitle="<strong>Acronyms used today:</strong> ISC2 CC (Certified in Cybersecurity, by the International Information System Security Certification Consortium), DMZ (demilitarized zone), VLAN (Virtual Local Area Network), NAC (Network Access Control), NIST SP (National Institute of Standards and Technology Special Publication).",
         focus="Morning: read Study Guide 4.6 firewalls and 4.7 architectures (DMZ, VLAN, subnet, micro-segmentation, zero trust, NAC). Afternoon: take Mock 1 timed at 2 hours. Score yourself. Anything below 65 means re-study that domain tomorrow morning before continuing. Tonight: full 5-room walk; Mock 1 will show which loci are weakest, reinforce those tomorrow.",
         citations=[
             ("ISC2 CC Outline 4.3", "network security infrastructure including on-premises, design, and cloud"),
@@ -71,6 +74,7 @@ DAYS = [
                ("Memory palace walkthrough", "guide.html#d2-the-cc-memory-palace")]),
 
     dict(w=1, d=4, title="Domain 2 Incident Response: NIST SP 800-61 4-phase lifecycle",
+        subtitle="<strong>Acronyms used today:</strong> ISC2 CC (Certified in Cybersecurity, by the International Information System Security Certification Consortium), IR (Incident Response), NIST SP (National Institute of Standards and Technology Special Publication), CSF (Cybersecurity Framework), RAM (Random Access Memory).",
         focus="You are at 60 percent on this domain. Today: memorize the 4 IR phases verbatim (Preparation, Detection and Analysis, Containment Eradication and Recovery, Post-Incident Activity). Know the distinction: precursor (sign incident might occur) vs indicator (sign incident has occurred). Order of volatility: RAM before disk before archives. Chain of custody preserves admissibility. Tonight: walk Room 2 (Living Room, Domain 2); verify couch cushion order matches NIST 800-61 IR phases.",
         citations=[
             ("ISC2 CC Outline 2.3", "incident response purpose, importance, and components are exam-tested"),
@@ -82,6 +86,7 @@ DAYS = [
                ("Memory palace walkthrough", "guide.html#d2-the-cc-memory-palace")]),
 
     dict(w=1, d=5, title="Domain 2 BC plus DR: RPO RTO MTD WRT, recovery sites, plus Mock 2",
+        subtitle="<strong>Acronyms used today:</strong> ISC2 CC (Certified in Cybersecurity, by the International Information System Security Certification Consortium), BC (Business Continuity), DR (Disaster Recovery), BCP/DRP/IRP (BC Plan / DR Plan / Incident Response Plan), RPO (Recovery Point Objective: data-loss tolerance), RTO (Recovery Time Objective: downtime tolerance), MTD (Maximum Tolerable Downtime), WRT (Work Recovery Time), BIA (Business Impact Analysis), NIST SP (National Institute of Standards and Technology Special Publication).",
         focus="Morning: BCP plus DRP vs IRP scope distinctions, the four recovery objectives (RPO data, RTO downtime, MTD outer limit, WRT post-RTO verification), and the recovery site ladder (hot fast and expensive, warm middle, cold slow and cheap, reciprocal mutual). BCP test types: Checklist, Tabletop, Simulation, Parallel, Full Cutover. Afternoon: Mock 2 timed. Tonight: walk Room 2 again, fireplace and coffee table.",
         citations=[
             ("ISC2 CC Outline 2.1 and 2.2", "BC and DR purpose importance and components"),
@@ -95,6 +100,7 @@ DAYS = [
 
     # --- Week 2 (May 25-29): Domain 3, then Domain 5, then Domain 1 + final mocks ---
     dict(w=2, d=1, title="Domain 3 Access Control: DAC, MAC, RBAC, ABAC, AAA, MFA",
+        subtitle="<strong>Acronyms used today:</strong> ISC2 CC (Certified in Cybersecurity, by the International Information System Security Certification Consortium), DAC (Discretionary Access Control), MAC (Mandatory Access Control here; also Media Access Control in networking), RBAC (Role-Based Access Control), ABAC (Attribute-Based Access Control), AAA (Authentication, Authorization, Accounting), MFA (Multi-Factor Authentication), FRR (False Reject Rate, biometric Type 1), FAR (False Accept Rate, biometric Type 2), AAL (Authenticator Assurance Level), NIST SP (National Institute of Standards and Technology Special Publication).",
         focus="Read the access control models table until you can produce each from memory. DAC = owner decides. MAC = system enforces labels. RBAC = role tied. ABAC = attributes. Memorize the 5 authentication factors (know, have, are, where, do) and that MFA needs different categories, not just multiple factors. Drill Type 1 (FRR) vs Type 2 (FAR) biometric errors. Tonight: walk Room 3 (Bedroom, Domain 3); bed posts hold DMRA models, closet shelves hold AAL levels.",
         citations=[
             ("ISC2 CC Outline 3.1 and 3.2", "physical and logical access controls both tested explicitly"),
@@ -106,6 +112,7 @@ DAYS = [
                ("Memory palace walkthrough", "guide.html#d2-the-cc-memory-palace")]),
 
     dict(w=2, d=2, title="Domain 3 wrap plus Domain 5 part 1: encryption, hashing, PKI",
+        subtitle="<strong>Acronyms used today:</strong> ISC2 CC (Certified in Cybersecurity, by the International Information System Security Certification Consortium), SSO (Single Sign-On), SAML (Security Assertion Markup Language), OAuth (Open Authorization), OIDC (OpenID Connect), AES (Advanced Encryption Standard), RSA (Rivest-Shamir-Adleman), ECC (Elliptic Curve Cryptography), SHA (Secure Hash Algorithm), PKI (Public Key Infrastructure).",
         focus="Morning: finish Domain 3 (SSO and federation via SAML, OAuth, OIDC, Kerberos). Afternoon: Domain 5 encryption (AES symmetric, RSA and ECC asymmetric, SHA-2/SHA-3/bcrypt hashing). Memorize the use patterns: confidentiality = recipient public key, authenticity = sender private key, hybrid = asymmetric exchanges symmetric. Non-repudiation requires asymmetric. Tonight: walk Rooms 3 and 5.",
         citations=[
             ("ISC2 CC Outline 5.1", "encryption including symmetric asymmetric and hashing tested explicitly"),
@@ -117,6 +124,7 @@ DAYS = [
                ("Memory palace walkthrough", "guide.html#d2-the-cc-memory-palace")]),
 
     dict(w=2, d=3, title="Domain 5 part 2: data lifecycle, logging, hardening, policies, plus Mock 3",
+        subtitle="<strong>Acronyms used today:</strong> ISC2 CC (Certified in Cybersecurity, by the International Information System Security Certification Consortium), NIST SP (National Institute of Standards and Technology Special Publication), SIEM (Security Information and Event Management), SOAR (Security Orchestration, Automation and Response), SOC (Security Operations Center), CIS (Center for Internet Security), DISA STIG (Defense Information Systems Agency Security Technical Implementation Guide), AES (Advanced Encryption Standard).",
         focus="Morning: data classification, labeling, retention, destruction (Clear, Purge, Destroy per NIST SP 800-88). SIEM aggregates, SOAR automates, SOC operates. CIS Benchmarks and DISA STIGs for hardening. Current NIST 800-63B password guidance: length over complexity, no forced rotation, check breach corpora. Afternoon: Mock 3 (weighted toward your weak Domains 2 and 4). Score yourself. Tonight: walk Room 5 (Bathroom, Domain 5); sink toothbrushes hold data states, medicine cabinet holds AES modes.",
         citations=[
             ("ISC2 CC Outline 5.1 through 5.4", "data security, hardening, policies, awareness training all on the exam"),
@@ -128,6 +136,7 @@ DAYS = [
                ("Memory palace walkthrough", "guide.html#d2-the-cc-memory-palace")]),
 
     dict(w=2, d=4, title="Domain 1 light review plus glossary memorization plus Mock 4",
+        subtitle='<strong>Acronyms used today:</strong> ISC2 CC (Certified in Cybersecurity, by the International Information System Security Certification Consortium). Glossary memorization day: see <a href="glossary.html">glossary</a> for the full initialism list.',
         focus="Morning: speed-read Part 1 (you are at 87 percent already). Memorize the ISC2 Code of Ethics canon order (Protect society first, Act honorably, Provide service, Advance the profession last). Drill the policy hierarchy: Regulation, Policy, Standard, Procedure, Guideline, Baseline. Risk treatment: Avoid, Transfer, Mitigate, Accept. Afternoon: Mock 4 (also weighted toward weak domains). Final score check. Tonight: walk Room 1 (Foyer, Domain 1).",
         citations=[
             ("ISC2 CC Outline 1.4", "ISC2 Code of Ethics canons are tested in order; earlier canons win when they conflict"),
@@ -140,6 +149,7 @@ DAYS = [
                ("Memory palace walkthrough", "guide.html#d2-the-cc-memory-palace")]),
 
     dict(w=2, d=5, title="Final review: targeted re-study of weakest mock domain plus exam logistics",
+        subtitle="<strong>Acronyms used today:</strong> ISC2 CC (Certified in Cybersecurity, by the International Information System Security Certification Consortium).",
         focus="Look at your four mock scores. The domain where you scored lowest gets the final day. Re-read that part of the Study Guide, drill the 15 high-frequency miss patterns in Appendix B, and read Appendix C (day-of-exam reminders) twice. Tonight: pack ID, confirm test-center location, plan transportation, set alarm, then a full 5-room palace walk before bed. No new material after 8 PM. Sleep consolidates everything before tomorrow's exam.",
         citations=[
             ("Study Guide Appendix B", "15 high-frequency miss patterns drilled here will catch the most common careless errors"),
@@ -308,6 +318,7 @@ def render_day_page(idx: int, notes_by_anchor: dict | None = None) -> str:
 <header class="hero">
   <div class="hero__category">ISC2 CC cram - week {d['w']} - day {d['d']}</div>
   <h1 class="hero__title">{h(d['title'])}</h1>
+  {f'<p class="hero__subtitle">{d["subtitle"]}</p>' if d.get('subtitle') else ''}
   <div class="hero__meta">
     <span><strong>Day {n}</strong> of 10</span>
     <span><strong>Week {d['w']}</strong> of 2</span>
@@ -359,7 +370,7 @@ def render_index() -> str:
 <header class="hero">
   <div class="hero__category">ISC2 CC cram program</div>
   <h1 class="hero__title">2 weeks, Mon-Fri, 10 study days</h1>
-  <p class="hero__subtitle">Open this page each weekday morning. The router below sends you to today's lesson. Exam date {EXAM_DATE}. Weighted toward Domain 4 Network Security (your weakest at 55 percent prelim).</p>
+  <p class="hero__subtitle">Open this page each weekday morning. The router below sends you to today's lesson. Exam date {EXAM_DATE}. Weighted toward Domain 4 Network Security (your weakest at 55 percent prelim). ISC2 CC = Certified in Cybersecurity, by the International Information System Security Certification Consortium; full acronym list in the <a href="glossary.html">glossary</a>.</p>
   <div class="hero__meta">
     <span><strong>Start</strong> {DEFAULT_START}</span>
     <span><strong>Exam</strong> {EXAM_DATE}</span>
