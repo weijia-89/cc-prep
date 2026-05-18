@@ -487,7 +487,20 @@ aside.user-note.edit {
   .daynav { font-size: 0.8rem; gap: 0.4em; }
   .daynav .daynav__meta { font-size: 0.7rem; flex-basis: 100%; order: 3; }
 
-  /* User notes on phones: inline (the default), but slightly tighter. */
-  aside.user-note { font-size: 0.74rem; padding: 0.25em 0.6em 0.25em 0.7em; }
-  aside.margin-note { font-size: 0.74rem; }
+  /* On phones, push all notes (citations + user notes) to the bottom of the
+   * page instead of letting them interrupt the reading flow. Achieved by
+   * making <main> a flex column and giving asides a high order value so they
+   * sort after content but before the daynav footer. */
+  main { display: flex; flex-direction: column; }
+  aside.margin-note,
+  aside.user-note {
+    order: 90;
+    font-size: 0.74rem;
+    padding: 0.3em 0.7em 0.3em 0.8em;
+    margin: 0.4em 0;
+  }
+  .daynav { order: 100; }
+
+  /* Visual gap between main content and the notes group. */
+  main > aside:first-of-type { margin-top: 2.5em; }
 }
