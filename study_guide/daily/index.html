@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ISC2 CC cram program</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+
+<header class="hero">
+  <div class="hero__category">ISC2 CC cram program</div>
+  <h1 class="hero__title">2 weeks, Mon-Fri, 10 study days</h1>
+  <p class="hero__subtitle">Open this page each weekday morning. The router below sends you to today's lesson. Exam date 2026-05-30. Weighted toward Domain 4 Network Security (your weakest at 55 percent prelim).</p>
+  <div class="hero__meta">
+    <span><strong>Start</strong> 2026-05-18</span>
+    <span><strong>Exam</strong> 2026-05-30</span>
+    <span><strong>Cadence</strong> weekdays only</span>
+  </div>
+</header>
+
+<div id="router-status"></div>
+
+<h2>All 10 days</h2>
+<div class="toc"><a href="day-01.html" data-idx="0">D1<small>W1 - D1</small></a><a href="day-02.html" data-idx="1">D2<small>W1 - D2</small></a><a href="day-03.html" data-idx="2">D3<small>W1 - D3</small></a><a href="day-04.html" data-idx="3">D4<small>W1 - D4</small></a><a href="day-05.html" data-idx="4">D5<small>W1 - D5</small></a><a href="day-06.html" data-idx="5">D6<small>W2 - D1</small></a><a href="day-07.html" data-idx="6">D7<small>W2 - D2</small></a><a href="day-08.html" data-idx="7">D8<small>W2 - D3</small></a><a href="day-09.html" data-idx="8">D9<small>W2 - D4</small></a><a href="day-10.html" data-idx="9">D10<small>W2 - D5</small></a></div>
+
+<h2>Corpus</h2>
+<ul>
+  <li><a href="guide.html">CC Study Guide</a> - 5 domains + appendices, weighted to your prelim scores</li>
+  <li><a href="exams.html">Practice Exams Mocks 1-2</a> - ISC2-weighted, 100 questions each</li>
+  <li><a href="mocks2.html">Practice Exams Mocks 3-4</a> - weighted toward Domain 4 and Domain 2</li>
+  <li><a href="glossary.html">Glossary</a> - every initialism defined</li>
+</ul>
+
+<script>
+const START = "2026-05-18";
+function todayIdx() {
+  const [y, m, d] = START.split("-").map(Number);
+  const start = new Date(y, m-1, d); start.setHours(0,0,0,0);
+  const today = new Date(); today.setHours(0,0,0,0);
+  if (today < start) return -1;
+  let n = 0;
+  const cur = new Date(start);
+  while (cur < today) {
+    cur.setDate(cur.getDate() + 1);
+    const dow = cur.getDay();
+    if (dow !== 0 && dow !== 6) n++;
+  }
+  const dow = today.getDay();
+  if (dow === 0 || dow === 6) return -2;
+  return n;
+}
+const idx = todayIdx();
+const status = document.getElementById("router-status");
+if (idx === -1) {
+  status.innerHTML = '<div class="callout callout--info"><span class="callout__label">Cram not started</span><p>Program start date is ' + START + '. Bookmark this page. <a href="day-01.html">Preview Day 1 (Domain 4 part 1)</a>.</p></div>';
+} else if (idx === -2) {
+  status.innerHTML = '<div class="callout callout--ok"><span class="callout__label">Rest day</span><p>Saturday or Sunday. Light Anki only. Use the TOC below to jump to any day or take an extra mock.</p></div>';
+} else if (idx >= 10) {
+  status.innerHTML = '<div class="callout callout--ok"><span class="callout__label">Cram complete - exam imminent</span><p>10 study days done. Final review Day 10. <a href="day-10.html">Re-read Day 10</a> | Exam date 2026-05-30.</p></div>';
+} else {
+  const todayLink = document.querySelector('.toc a[data-idx="' + idx + '"]');
+  if (todayLink) todayLink.classList.add('today');
+  status.innerHTML = '<div class="callout callout--info"><span class="callout__label">Today is day ' + (idx+1) + '</span><p>Redirecting in 3 seconds... <a href="day-' + String(idx+1).padStart(2,"0") + '.html">Go now</a> | <a href="#" onclick="event.preventDefault();document.getElementById(\'router-status\').style.display=\'none\';">Stay on index</a></p></div>';
+  setTimeout(function() {
+    if (document.getElementById("router-status").style.display !== "none") {
+      location.href = 'day-' + String(idx+1).padStart(2,"0") + '.html';
+    }
+  }, 3000);
+}
+</script>
+
+</main>
+</body>
+</html>
