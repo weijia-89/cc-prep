@@ -63,7 +63,16 @@
 <hr />
 <h2 id="part-1-security-principles-domain-1-isc2-weight-26">Part 1 - Security Principles (Domain 1, ISC2 weight ~26%)</h2>
 <blockquote>
-<p><strong>Memory anchors (palace Room 1: Foyer).</strong> <strong>CIA + AAA</strong> on the door medallions. <strong>PASA</strong> on the welcome mat (ethics canon order, Protect society / Act honorably / Service to principals / Advance the profession). <strong>ATMA</strong> on the four coat hooks (risk treatments). <strong>Five fingers</strong> = five auth factors (Know / Have / Are / Where / Do). <strong>SLE x ARO = ALE</strong> on the side-table calculator. <strong>RPS-PGB</strong> policy hierarchy on the stacked papers. See Appendix D.2 for the full walkthrough.</p>
+<p><strong>Memory anchors (palace Room 1: Foyer, Domain 1).</strong> Pick a foyer or entryway you know intimately. List 5-6 distinct loci in order: door, mat, hooks or coat rack, mirror, side table, shelf, or whatever your foyer actually has. For each Domain 1 anchor below, choose your own image to place at one locus; vivid and personal beats clever. Capture each choice as a gutter note.</p>
+<ul>
+<li><strong>CIA + AAA</strong> (Confidentiality / Integrity / Availability; Authentication / Authorization / Accounting)</li>
+<li><strong>PASA</strong> (ethics canon order: Protect society / Act honorably / Service to principals / Advance the profession; earlier canons win when they conflict)</li>
+<li><strong>ATMA</strong> (risk treatments: Avoid / Transfer / Mitigate / Accept)</li>
+<li><strong>5 authentication factors</strong> (Know / Have / Are / Where / Do; MFA requires factors from two different categories)</li>
+<li><strong>SLE x ARO = ALE</strong> (risk math: single-loss x annual rate = annual loss)</li>
+<li><strong>RPS-PGB</strong> (policy hierarchy: Regulation / Policy / Standard / Procedure / Guideline / Baseline; top three mandatory, bottom three recommended)</li>
+</ul>
+<p>See Appendix D.2 for the elicitation framework.</p>
 </blockquote>
 <p>Wei is at 87% on the prelim. This part is a vocabulary refresh, not a re-teach. Hit the named concepts ISC2 will quiz.</p>
 <h3 id="11-information-assurance-the-cia-triad-plus">1.1 Information assurance - the CIA triad plus</h3>
@@ -82,6 +91,9 @@
 <p><strong>Non-repudiation.</strong> A party cannot later deny having performed an action. Achieved by digital signatures plus audit logging. Symmetric encryption alone does not provide non-repudiation because both parties share the same key.</p>
 <p><strong>Privacy.</strong> Individual's right to control disclosure of personal information. Distinct from confidentiality: confidentiality is a control, privacy is the right that control protects. Regulated by GDPR (General Data Protection Regulation, EU), CCPA (California Consumer Privacy Act), HIPAA (Health Insurance Portability and Accountability Act).</p>
 <h3 id="12-risk-management">1.2 Risk management</h3>
+<blockquote>
+<p><strong>Anchor reminder (Room 1 locus).</strong> Pick one image that captures <strong>ATMA risk treatments</strong> (Avoid / Transfer / Mitigate / Accept). Place it at a Foyer locus; capture as gutter note.</p>
+</blockquote>
 <p><strong>Risk = threat × vulnerability × impact.</strong> ISC2 will quiz this as a relationship, not a literal multiplication.</p>
 <p><strong>Risk treatment options (four):</strong></p>
 <table>
@@ -118,6 +130,9 @@
 <p><strong>Inherent vs residual risk.</strong> Inherent = before controls. Residual = after controls. Residual risk must be at or below the organization's <strong>risk tolerance</strong> (also called risk appetite).</p>
 <p><strong>Risk identification → assessment → treatment.</strong> The three steps ISC2 names. Assessment can be qualitative (high/med/low ranking) or quantitative (annualized loss expectancy ALE = single-loss expectancy SLE × annualized rate of occurrence ARO).</p>
 <h3 id="13-security-controls">1.3 Security controls</h3>
+<blockquote>
+<p><strong>Anchor reminder (Room 1 locus).</strong> Pick one image that captures <strong>default deny</strong> as the safe baseline (default allow is the trap). Place it at a Foyer locus; capture as gutter note.</p>
+</blockquote>
 <p>ISC2 names three categories:</p>
 <p><strong>Technical (logical) controls.</strong> Software, hardware, encryption, firewalls, IDS/IPS (intrusion detection / prevention systems), access control lists, MFA tokens.</p>
 <p><strong>Administrative (managerial) controls.</strong> Policies, procedures, training, background checks, separation of duties, hiring practices.</p>
@@ -132,6 +147,9 @@
 <li><strong>Recovery</strong> (restores operations - backups, failover sites)</li>
 </ul>
 <h3 id="14-isc2-code-of-ethics">1.4 ISC2 Code of Ethics</h3>
+<blockquote>
+<p><strong>Anchor reminder (Room 1 locus).</strong> Pick one image that captures <strong>PASA canon order</strong> (Protect society first, Act honorably, Service to principals, Advance the profession last; earlier canons win when they conflict). Place it at a Foyer locus; capture as gutter note.</p>
+</blockquote>
 <p>Four canons. Order matters; ISC2 expects them in this order.</p>
 <ol>
 <li><strong>Protect</strong> society, the common good, necessary public trust and confidence, and the infrastructure.</li>
@@ -142,6 +160,9 @@
 <p>Preamble: &quot;Safety and welfare of society and the common good, duty to our principals, and to each other, requires that we adhere, and be seen to adhere, to the highest ethical standards of behavior.&quot;</p>
 <p>If canons conflict, <strong>earlier canon wins.</strong> Protecting society beats serving the principal.</p>
 <h3 id="15-governance-the-policy-hierarchy">1.5 Governance - the policy hierarchy</h3>
+<blockquote>
+<p><strong>Anchor reminder (Room 1 locus).</strong> Pick one image that captures <strong>RPS-PGB policy hierarchy</strong> (Regulation / Policy / Standard / Procedure / Guideline / Baseline; top three mandatory, bottom three recommended). Place it at a Foyer locus; capture as gutter note.</p>
+</blockquote>
 <table>
 <thead>
 <tr>
@@ -186,7 +207,15 @@
 <p>Memory anchor: <strong>R-P-S-P-G-B</strong> is the hierarchy. Regulations are external; policy/standards/procedures are mandatory internal; guidelines are recommended only.</p>
 <hr />
 <blockquote>
-<p><strong>Memory anchors (palace Room 2: Living Room).</strong> <strong>PDCP</strong> four-cushion couch = NIST 800-61 IR phases (Preparation / Detection-Analysis / Containment-Eradication-Recovery / Post-Incident). <strong>RPO RTO MTD WRT</strong> four TV quadrants (data loss / downtime / outer-limit / verify-time). <strong>HWCR</strong> fireplace fires from roaring to matchstick (Hot / Warm / Cold / Reciprocal sites). <strong>CTSPF</strong> five-book stack (Checklist / Tabletop / Simulation / Parallel / Full Cutover, ascending rigor). <strong>Order of volatility</strong> = top-down bookshelf (RAM &gt; network &gt; processes &gt; disk &gt; archives). See Appendix D.2.</p>
+<p><strong>Memory anchors (palace Room 2: Living Room, Domain 2).</strong> Pick a living room you know. List 5 distinct loci in walkthrough order: couch, TV, fireplace, coffee table, bookshelf, or whatever your room actually has. For each Domain 2 anchor below, choose your own image to place at one locus; vivid and personal beats clever. Capture each choice as a gutter note.</p>
+<ul>
+<li><strong>PDCP</strong> (NIST 800-61 r2 IR phases: Preparation / Detection-and-Analysis / Containment-Eradication-Recovery / Post-Incident; short-term-isolate and long-term-rebuild both sit inside phase 3)</li>
+<li><strong>RPO / RTO / MTD / WRT</strong> (recovery numbers: data tolerance / downtime tolerance / outer limit / verification gap; RTO + WRT must be less than or equal to MTD)</li>
+<li><strong>HWCR</strong> (recovery sites in ascending cost: Hot ready immediately / Warm hours to ramp / Cold days / Reciprocal mutual)</li>
+<li><strong>CTSPF</strong> (BCP test ladder in ascending rigor: Checklist / Tabletop / Simulation / Parallel / Full Cutover)</li>
+<li><strong>Order of volatility</strong> (collect RAM before disk before archives)</li>
+</ul>
+<p>See Appendix D.2 for the elicitation framework.</p>
 </blockquote>
 <h2 id="part-2-business-continuity-disaster-recovery-incident-response-domain-2-isc2-weight-10">Part 2 - Business Continuity, Disaster Recovery, Incident Response (Domain 2, ISC2 weight ~10%)</h2>
 <p>Wei is at 60%. <strong>Heavy emphasis</strong> here. Three distinct concepts that ISC2 tests as separate but related.</p>
@@ -231,6 +260,9 @@
 </ol>
 <p>The BIA produces the <strong>recovery objectives</strong> that drive BCP/DRP design.</p>
 <h3 id="23-recovery-objectives-the-four-numbers-isc2-tests">2.3 Recovery objectives - the four numbers ISC2 tests</h3>
+<blockquote>
+<p><strong>Anchor reminder (Room 2 locus).</strong> Pick one image that captures the <strong>RPO vs RTO</strong> trap (RPO = data tolerance, RTO = time tolerance; memorize the letter). Place it at a Living Room locus; capture as gutter note.</p>
+</blockquote>
 <table>
 <thead>
 <tr>
@@ -265,6 +297,9 @@
 <p><strong>Relationship:</strong> RTO + WRT ≤ MTD. The system must be technically up (RTO), then verified and loaded with current data (WRT), all within the absolute MTD.</p>
 <p><strong>RPO is about data loss; RTO is about downtime.</strong> Memory anchor: <strong>P</strong>oint = data <strong>P</strong>oint in time before failure; <strong>T</strong>ime = downtime.</p>
 <h3 id="24-recovery-sites-the-four-options">2.4 Recovery sites - the four options</h3>
+<blockquote>
+<p><strong>Anchor reminder (Room 2 locus).</strong> Pick one image that captures the <strong>HWCR site ladder</strong> (Hot fast and expensive / Warm middle / Cold slow and cheap / Reciprocal mutual). Place it at a Living Room locus; capture as gutter note.</p>
+</blockquote>
 <table>
 <thead>
 <tr>
@@ -318,6 +353,9 @@
 </ol>
 <p>Memory anchor: <strong>C-T-S-P-F</strong>. Start with checklist, end with full cutover only when confident.</p>
 <h3 id="26-incident-response-lifecycle">2.6 Incident response lifecycle</h3>
+<blockquote>
+<p><strong>Anchor reminder (Room 2 locus).</strong> Pick one image that captures <strong>PDCP IR phases</strong> (Preparation / Detection-and-Analysis / Containment-Eradication-Recovery / Post-Incident; short-term-isolate and long-term-rebuild both sit inside phase 3). Place it at a Living Room locus; capture as gutter note.</p>
+</blockquote>
 <p><strong>ISC2 currently teaches the SP 800-61r2 lifecycle</strong> (four phases, the canonical model). NIST published SP 800-61r3 in April 2025 reframing IR around the CSF (Cybersecurity Framework) 2.0 six Functions, but the CC exam still tests the four-phase model.</p>
 <p><strong>SP 800-61r2 four phases (memorize):</strong></p>
 <ol>
@@ -343,6 +381,9 @@
 </ul>
 <p><strong>Roles:</strong> Incident handler (lead), forensic analyst, malware analyst, communications lead, legal counsel, HR liaison, executive sponsor.</p>
 <h3 id="28-evidence-handling-chain-of-custody">2.8 Evidence handling - chain of custody</h3>
+<blockquote>
+<p><strong>Anchor reminder (Room 2 locus).</strong> Pick one image that captures the <strong>order of volatility</strong> (RAM first, then disk, then archives). Place it at a Living Room locus; capture as gutter note.</p>
+</blockquote>
 <p>When evidence may be used legally, <strong>chain of custody</strong> must be maintained: who collected it, when, how, where it was stored, who accessed it. Break the chain → evidence inadmissible.</p>
 <p><strong>Order of volatility</strong> - collect most-volatile evidence first:</p>
 <ol>
@@ -354,7 +395,15 @@
 </ol>
 <p>Image disks <strong>before</strong> rebooting, or you lose RAM.</p>
 <blockquote>
-<p><strong>Memory anchors (palace Room 3: Bedroom).</strong> <strong>DMRA</strong> four-poster bed in increasing flexibility (DAC owner / MAC military / RBAC name-badge / ABAC clipboard). <strong>AAL1/2/3</strong> closet shelves bottom-to-top (one sock / two socks / FIDO2 key). <strong>FRR Type 1 / FAR Type 2 / CER crossover</strong> in the three dresser drawers (FAR is the dangerous one - impostor admitted). Window: bars (mantrap) + bollards + floodlight (deterrent). <strong>AAA</strong>: Authentication / Authorization / Accounting (add <strong>I</strong> for Identification when ISC2 wants IAAA). See Appendix D.2.</p>
+<p><strong>Memory anchors (palace Room 3: Bedroom, Domain 3).</strong> Pick a bedroom you know. List 5 distinct loci in order: bed posts, closet, dresser, window, nightstand, or whatever your bedroom actually has. For each Domain 3 anchor below, choose your own image to place at one locus; vivid and personal beats clever. Capture each choice as a gutter note.</p>
+<ul>
+<li><strong>DMRA</strong> (access control models: DAC owner-decides / MAC system-enforces-labels / RBAC role-tied / ABAC attribute-tied; do not confuse Mandatory Access Control with Media Access Control)</li>
+<li><strong>AAL levels</strong> (NIST 800-63B assurance: AAL1 single-factor / AAL2 multi-factor / AAL3 hardware-cryptographic)</li>
+<li><strong>Biometric errors</strong> (FRR Type 1 false-reject is annoying / FAR Type 2 false-accept is dangerous / CER crossover where the two rates meet)</li>
+<li><strong>Physical controls</strong> (mantrap preventive / bollards anti-ramming / floodlight deterrent)</li>
+<li><strong>IAAA + identity protocols</strong> (Identification / Authentication / Authorization / Accounting; Kerberos for intranet ticket-based, SAML for federated SSO via XML, OAuth for authorization delegation)</li>
+</ul>
+<p>See Appendix D.2 for the elicitation framework.</p>
 </blockquote>
 <hr />
 <h2 id="part-3-access-control-concepts-domain-3-isc2-weight-22">Part 3 - Access Control Concepts (Domain 3, ISC2 weight ~22%)</h2>
@@ -380,6 +429,9 @@
 <p><strong>Separation of duties (SoD).</strong> No single person can complete a sensitive transaction alone. Prevents fraud. Example: developer cannot deploy to production; QA approves the deploy.</p>
 <p><strong>Need-to-know.</strong> Access requires both clearance level <em>and</em> a job reason. Distinct from clearance: a Top Secret clearance does not grant access to all Top Secret material - only the material the person needs to know.</p>
 <h3 id="33-access-control-models-the-four-isc2-tests">3.3 Access control models - the four ISC2 tests</h3>
+<blockquote>
+<p><strong>Anchor reminder (Room 3 locus).</strong> Pick one image that captures <strong>DMRA models</strong> (DAC owner / MAC labels / RBAC role / ABAC attributes); separately pick one image that disambiguates Mandatory Access Control from Media Access Control. Place each at a Bedroom locus; capture both as gutter notes.</p>
+</blockquote>
 <table>
 <thead>
 <tr>
@@ -420,6 +472,9 @@
 <strong>Accounting (auditing)</strong> - recording what was done.</p>
 <p>Sometimes called <strong>AAA</strong> when identification is folded into authentication.</p>
 <h3 id="35-authentication-factors-and-mfa-depth">3.5 Authentication factors and MFA depth</h3>
+<blockquote>
+<p><strong>Anchor reminder (Room 3 locus).</strong> Pick one image that captures the <strong>5 authentication factors</strong> (Know / Have / Are / Where / Do) and the rule that MFA requires factors from two different categories. Place it at a Bedroom locus; capture as gutter note.</p>
+</blockquote>
 <p>Recap from 1.1:</p>
 <ul>
 <li>Something you know - password, PIN, security questions.</li>
@@ -441,7 +496,16 @@
 <p><strong>SSO</strong> - one login grants access to multiple applications. Reduces password fatigue and re-prompting.</p>
 <p><strong>Federation</strong> - SSO across organizational boundaries via trust relationships. Standards: SAML (Security Assertion Markup Language), OAuth 2.0, OpenID Connect (OIDC), Kerberos (for intranet).</p>
 <blockquote>
-<p><strong>Memory anchors (palace Room 4: Kitchen, your weakest and most vivid).</strong> <strong>APSTNDP</strong> = All People Seem To Need Data Processing = the seven pantry shelves top-down (Application / Presentation / Session / Transport / Network / Data Link / Physical). <strong>AEI</strong> on the fridge magnets (AH auth-only, ESP encrypt+auth, IKE key-exchange) plus two delivery-box dioramas (Transport keeps original IP header; Tunnel wraps the entire packet with new header). Four stove burners: packet filter / stateful / app-proxy / NGFW. Spice rack bottles by range size: 10/8 &gt; 172.16/12 &gt; 192.168/16 (plus the &quot;DO NOT USE&quot; APIPA 169.254/16). Port chunks: file/shell 20-23, mail 25/110/143, web 80/443, names 53/67/123, Microsoft 135/445/3389, directory 389/636, management 161/162. See Appendix D.2.</p>
+<p><strong>Memory anchors (palace Room 4: Kitchen, Domain 4 - YOUR WEAKEST, MAKE THIS VIVID).</strong> Pick a kitchen you know. List 5 distinct loci in order: pantry shelves, fridge door, stove burners, spice rack, attack-jars shelf, or whatever your kitchen actually has. For each Domain 4 anchor below, choose your own image to place at one locus; vivid and personal beats clever. Capture each choice as a gutter note.</p>
+<ul>
+<li><strong>OSI 7 layers</strong> (top to bottom: Application / Presentation / Session / Transport / Network / Data Link / Physical; mnemonic &quot;All People Seem To Need Data Processing&quot;)</li>
+<li><strong>IPsec</strong> (AH authentication header / ESP encryption-plus-auth / IKE key exchange; Transport mode wraps payload only, Tunnel mode wraps the entire original packet plus a new IP header)</li>
+<li><strong>Firewall types</strong> (ascending sophistication: packet filter sees headers / stateful tracks connections / application-proxy reads protocol semantics / NGFW combines all plus IPS plus threat intel)</li>
+<li><strong>Private IP ranges</strong> (Class A 10.0.0.0/8 / Class B 172.16.0.0/12 / Class C 192.168.0.0/16 / APIPA 169.254.0.0/16 link-local-only)</li>
+<li><strong>Named attacks</strong> (ARP spoofing / DNS poisoning / MITM / evil twin; ISC2 outline 4.2 expects each by name)</li>
+<li><strong>Port chunks</strong> (file/shell 20-23, mail 25/110/143, web 80/443, names 53/67/123, Microsoft 135/445/3389, directory 389/636, management 161/162)</li>
+</ul>
+<p>See Appendix D.2 for the elicitation framework.</p>
 </blockquote>
 <p><strong>Risk of SSO:</strong> if the SSO credential is compromised, attacker gets all linked applications. Mitigate with MFA on the SSO login.</p>
 <hr />
@@ -760,6 +824,9 @@
 </ul>
 <p><strong>Antivirus / antimalware</strong> - usually signature + heuristic on a host. Modern variants (EDR - Endpoint Detection and Response) add behavioral analytics + threat hunting.</p>
 <h3 id="46-firewalls-types-and-where-they-sit">4.6 Firewalls - types and where they sit</h3>
+<blockquote>
+<p><strong>Anchor reminder (Room 4 locus).</strong> Pick one image that captures the <strong>stateful versus application firewall</strong> distinction (stateful tracks connections; application reads protocol semantics). Place it at a Kitchen locus; capture as gutter note.</p>
+</blockquote>
 <p>Per NIST SP 800-41r1:</p>
 <p><strong>Firewall types (memorize the order from simplest to most capable):</strong></p>
 <ol>
@@ -774,6 +841,9 @@
 </ol>
 <p><strong>Default deny.</strong> Best-practice rule: block everything by default, explicitly allow only what's needed. Implicit deny at the end of every rule chain.</p>
 <h3 id="47-network-architectures-and-segmentation">4.7 Network architectures and segmentation</h3>
+<blockquote>
+<p><strong>Anchor reminder (Room 4 locus).</strong> Pick one image that captures the <strong>DMZ requires two firewalls</strong> rule (or two interfaces on one firewall: one between internet and DMZ, one between DMZ and internal). Place it at a Kitchen locus; capture as gutter note.</p>
+</blockquote>
 <p><strong>DMZ (Demilitarized Zone, also called perimeter network).</strong> A subnet between the internet and the internal network. Hosts public-facing services (web, mail) so a compromise of those services does not directly expose the internal network. Two firewalls: one between internet and DMZ, one between DMZ and internal.</p>
 <p><strong>VLAN (Virtual Local Area Network).</strong> Logical segmentation of switch ports into separate broadcast domains. Layer 2. Separates traffic without separate physical switches.</p>
 <p><strong>Subnetting.</strong> Layer 3 segmentation. Each subnet is its own broadcast domain; routers move traffic between subnets.</p>
@@ -782,6 +852,9 @@
 <p><strong>Defense in depth.</strong> Multiple layers of controls so that no single failure compromises the system. Physical + perimeter + network + host + application + data layers.</p>
 <p><strong>NAC (Network Access Control).</strong> Verifies a device's posture (patches, AV running, config) before granting network access. Quarantines non-compliant devices.</p>
 <h3 id="48-vpns-virtual-private-networks">4.8 VPNs (Virtual Private Networks)</h3>
+<blockquote>
+<p><strong>Anchor reminder (Room 4 locus).</strong> Pick one image that captures <strong>IPsec Transport vs Tunnel</strong> (Transport wraps payload only; Tunnel wraps the entire packet plus a new IP header). Place it at a Kitchen locus; capture as gutter note.</p>
+</blockquote>
 <p><strong>Purpose:</strong> encrypted tunnel across an untrusted network (the internet).</p>
 <p><strong>Architectures:</strong></p>
 <ul>
@@ -858,7 +931,16 @@
 <li><strong>Fire suppression</strong> - water sprinklers damage equipment. Better: gas-based (FM-200, Inergen) or <strong>clean agents</strong> for data centers. Pre-action sprinkler systems delay water release.</li>
 </ul>
 <blockquote>
-<p><strong>Memory anchors (palace Room 5: Bathroom).</strong> Three toothbrushes at the sink = three data states (at Rest in cup / in Transit mid-stroke / in Use in mouth). Medicine cabinet has four AES-mode bottles left-to-right (ECB patterns visible insecure / CBC chained / CTR counter dial / GCM counter + authentication wax seal). Bathtub sponges in ascending strength = NIST 800-88 sanitization (<strong>CPD</strong> Clear / Purge / Destroy). Mirror shows PKI flow (CA signs / RA verifies / certificate binds public key to identity / CRL list and OCSP real-time at the door). Shower curtain shows four phishing cartoons (smishing text / vishing phone / whaling executive / spear-phishing literal spear). <strong>SIEM</strong> aggregates, <strong>SOAR</strong> automates, <strong>SOC</strong> is the team (not SoC = System on Chip). See Appendix D.2.</p>
+<p><strong>Memory anchors (palace Room 5: Bathroom, Domain 5).</strong> Pick a bathroom you know. List 5 distinct loci in order: sink, medicine cabinet, bathtub, mirror, shower curtain, or whatever your bathroom actually has. For each Domain 5 anchor below, choose your own image to place at one locus; vivid and personal beats clever. Capture each choice as a gutter note.</p>
+<ul>
+<li><strong>Data states</strong> (at rest stored / in transit moving / in use processing in memory; protections rise from full-disk encryption through TLS/VPN/IPsec to TEE or homomorphic encryption, hardest at in-use)</li>
+<li><strong>AES modes</strong> (ECB insecure for multi-block / CBC chains with IV / CTR counter-based / GCM authenticated encryption in one pass)</li>
+<li><strong>CPD sanitization</strong> (NIST 800-88 ascending strength: Clear logical overwrite / Purge degauss or crypto-erase / Destroy physical shred)</li>
+<li><strong>PKI flow</strong> (CA signs certificates / RA verifies identity / certificate binds public key to identity / CRL or OCSP checks revocation)</li>
+<li><strong>Phishing types</strong> (smishing SMS / vishing voice / whaling executives / spear phishing one named target)</li>
+<li><strong>SIEM / SOAR / SOC</strong> (aggregates logs / automates response / is the team; do not confuse SOC with System-on-Chip)</li>
+</ul>
+<p>See Appendix D.2 for the elicitation framework.</p>
 </blockquote>
 <ul>
 <li><strong>Data center / closet</strong> - locked, monitored, raised floor, fire suppression, environmental sensors.</li>
@@ -876,6 +958,9 @@
 <li><strong>In use</strong> - actively being processed in memory. Hardest to protect; emerging techniques: TEE (trusted execution environment), homomorphic encryption.</li>
 </ul>
 <h3 id="52-encryption-symmetric-asymmetric-hashing">5.2 Encryption - symmetric, asymmetric, hashing</h3>
+<blockquote>
+<p><strong>Anchor reminder (Room 5 locus).</strong> Pick one image that captures the <strong>symmetric does not provide non-repudiation</strong> rule (shared keys cannot prove who sent; only asymmetric digital signatures do). Place it at a Bathroom locus; capture as gutter note.</p>
+</blockquote>
 <p><strong>Symmetric encryption.</strong> One shared secret key for both encrypt and decrypt. Fast. Problem: how to share the key securely.</p>
 <p>Common algorithms:</p>
 <ul>
@@ -1098,7 +1183,24 @@ Working memory holds 3 to 4 chunks of information at a time. Group items into ch
 <p><strong>Sleep consolidation</strong> <code>[T2-cited]</code> (Walker 2017 + 2020s replications)
 Memory consolidates during sleep, particularly during slow-wave and REM phases. Six to eight hours the night before an exam outperforms last-minute cramming on test-day performance. <strong>Practical: lights out by 11pm the night before Mock 1, and the night before the exam. No new material after dinner on Friday May 29.</strong></p>
 <h3 id="d2-the-cc-memory-palace">D.2 The CC memory palace</h3>
-<p>A memory palace works best when the route is HIGHLY familiar. Use the apartment you live in. The walkthrough below uses a generic 5-room layout you map onto your actual space. Each room holds one Domain. Each locus holds one to two CC concepts. Walk the palace mentally every night before sleep for the first three days, then check in twice a week.</p>
+<p>A memory palace works best when the route is HIGHLY familiar AND the imagery is yours. The 2-3x encoding advantage of Method of Loci over rote memorization comes from self-generated, vivid, personally-relevant imagery. Dictated imagery from someone else's brain is somebody else's pointer system; mapping it to yours is double work.</p>
+<p><strong>Build your own, in five steps:</strong></p>
+<ol>
+<li><strong>Pick five rooms you can walk through eyes-closed.</strong> Your apartment is ideal. Childhood home, a familiar gym, or a frequent commute route work too. Each room holds one ISC2 domain in outline order; the Part-level blockquotes at the top of each Part name which room maps to which domain.</li>
+<li><strong>List 5-8 distinct loci per room in walkthrough order.</strong> Door, mat, table, shelf, window, whatever your actual room contains. The route is the index; order matters.</li>
+<li><strong>For each Domain anchor, pick your own image to place at one locus.</strong> The five Part-level blockquotes (one at the top of each Part 1 through 5) list the anchors for that Domain. Vivid and personal beats clever.</li>
+<li><strong>Capture each choice as a gutter note on the daily page.</strong> The note system anchors your imagery to the source section. Next time you re-read the section, your own image surfaces alongside.</li>
+<li><strong>Walk the palace every night for the first three days, then twice a week.</strong> First three walks are slow; verify each locus. Nights 4 through 10, the walk should take under three minutes.</li>
+</ol>
+<p><strong>Why this works:</strong></p>
+<ul>
+<li>Self-generated imagery encodes 2-3x stronger than dictated imagery (Roediger 2006; Karpicke and Blunt 2011 testing-effect generalization).</li>
+<li>Spaced retrieval during the walk consolidates the binding (Bjork 1994 desirable difficulties).</li>
+<li>The route serves as both index and retrieval cue: walking activates the cue, the cue retrieves the image, the image retrieves the concept.</li>
+</ul>
+<p><strong>If you cannot generate imagery on day one:</strong> use the pre-built fallback in D.2.1 below as a STARTING point only. Substitute your own imagery within a day or two; the pre-built version exists to break the cold-start, not for long-term encoding.</p>
+<h4 id="d21-pre-built-rooms-fallback-expect-2-3x-weaker-encoding">D.2.1 Pre-built rooms (fallback, expect 2-3x weaker encoding)</h4>
+<p>Use this only if you cannot generate your own imagery. Replace each pre-built image with your own as soon as you find one; the dictated version is a scaffold, not the destination.</p>
 <p>The five rooms, in walkthrough order (matching ISC2 domain order):</p>
 <p><strong>Room 1: Front door and foyer = Domain 1 Security Principles</strong></p>
 <ul>

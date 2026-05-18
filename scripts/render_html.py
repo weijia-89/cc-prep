@@ -38,47 +38,51 @@ EXAM_DATE = "2026-05-30"
 DAYS = [
     # --- Week 1 (May 18-22): heavy on Domain 4 first, then Domain 2 ---
     dict(w=1, d=1, title="Domain 4 Network Security part 1: OSI, TCP/IP, ports",
-        focus="You are at 55 percent on Network Security. Frontload it. Today: memorize the OSI 7 layers top-to-bottom (Application, Presentation, Session, Transport, Network, Data Link, Physical) and the top-20 common ports. Use the mnemonic All People Seem To Need Data Processing. Skim NIST SP 800-41 sections 2.1.1-2.1.3 for packet-filter vs stateful vs application firewalls.",
+        focus="You are at 55 percent on Network Security. Frontload it. Today: memorize the OSI 7 layers top-to-bottom (Application, Presentation, Session, Transport, Network, Data Link, Physical) and the top-20 common ports. Use the mnemonic All People Seem To Need Data Processing. Skim NIST SP 800-41 sections 2.1.1-2.1.3 for packet-filter vs stateful vs application firewalls. Tonight: walk Room 4 (Kitchen, Domain 4) slowly; this room is your weakest.",
         citations=[
             ("ISC2 CC Outline 4.1", "OSI and TCP/IP models, IPv4 vs IPv6, ports are all named explicitly"),
             ("NIST SP 800-41 r1 sec 2.1.1", "packet filtering is the most basic firewall technology; modern firewalls layer it under stateful inspection"),
             ("Roediger and Karpicke 2006", "spaced retrieval beats massed re-reading for delayed recall"),
         ],
         links=[("Study Guide Part 4", "guide.html#part-4-network-security-domain-4-isc2-weight-24-depth-pass"),
-               ("Glossary: ports and protocols", "glossary.html")]),
+               ("Glossary: ports and protocols", "glossary.html"),
+               ("Memory palace walkthrough", "guide.html#d2-the-cc-memory-palace")]),
 
     dict(w=1, d=2, title="Domain 4 part 2: TLS, IPsec, VPN, network threats",
-        focus="Today: IPsec Transport vs Tunnel modes (payload only vs entire packet plus new IP header), AH vs ESP (auth-only vs encryption-plus-auth), and the named attack vocabulary (DoS/DDoS, MITM, ARP/DNS spoofing, evil twin, side-channel). Practice naming each: virus needs a host, worm self-propagates, Trojan hides in legitimate-looking software.",
+        focus="Today: IPsec Transport vs Tunnel modes (payload only vs entire packet plus new IP header), AH vs ESP (auth-only vs encryption-plus-auth), and the named attack vocabulary (DoS/DDoS, MITM, ARP/DNS spoofing, evil twin, side-channel). Practice naming each: virus needs a host, worm self-propagates, Trojan hides in legitimate-looking software. Tonight: walk Room 4 again, focusing on the fridge (IPsec) and stove burners (firewalls).",
         citations=[
             ("ISC2 CC Outline 4.2", "network threats and attacks list is canonical; memorize each by name"),
             ("NIST SP 800-77 r1", "IPsec VPN modes and protocols; transport vs tunnel is the most-tested distinction"),
             ("Bjork 1994", "the desirable-difficulties principle: harder retrieval produces stronger encoding"),
         ],
         links=[("Study Guide 4.4 Network threats", "guide.html#44-network-threats-and-attacks-isc2-named-list"),
-               ("Study Guide 4.8 VPNs", "guide.html#48-vpns-virtual-private-networks")]),
+               ("Study Guide 4.8 VPNs", "guide.html#48-vpns-virtual-private-networks"),
+               ("Memory palace walkthrough", "guide.html#d2-the-cc-memory-palace")]),
 
     dict(w=1, d=3, title="Domain 4 part 3 plus Mock 1 (full 100 questions, 2 hours)",
-        focus="Morning: read Study Guide 4.6 firewalls and 4.7 architectures (DMZ, VLAN, subnet, micro-segmentation, zero trust, NAC). Afternoon: take Mock 1 timed at 2 hours. Score yourself. Anything below 65 means re-study that domain tomorrow morning before continuing.",
+        focus="Morning: read Study Guide 4.6 firewalls and 4.7 architectures (DMZ, VLAN, subnet, micro-segmentation, zero trust, NAC). Afternoon: take Mock 1 timed at 2 hours. Score yourself. Anything below 65 means re-study that domain tomorrow morning before continuing. Tonight: full 5-room walk; Mock 1 will show which loci are weakest, reinforce those tomorrow.",
         citations=[
             ("ISC2 CC Outline 4.3", "network security infrastructure including on-premises, design, and cloud"),
             ("NIST SP 800-41 r1 sec 3", "DMZ architecture requires two firewalls or two interfaces on one firewall"),
             ("Karpicke and Blunt 2011", "practice testing is more effective than concept mapping for long-term retention"),
         ],
         links=[("Mock Exam 1", "exams.html#mock-1-100-questions-isc2-weighted"),
-               ("Study Guide 4.6 Firewalls", "guide.html#46-firewalls-types-and-where-they-sit")]),
+               ("Study Guide 4.6 Firewalls", "guide.html#46-firewalls-types-and-where-they-sit"),
+               ("Memory palace walkthrough", "guide.html#d2-the-cc-memory-palace")]),
 
     dict(w=1, d=4, title="Domain 2 Incident Response: NIST SP 800-61 4-phase lifecycle",
-        focus="You are at 60 percent on this domain. Today: memorize the 4 IR phases verbatim (Preparation, Detection and Analysis, Containment Eradication and Recovery, Post-Incident Activity). Know the distinction: precursor (sign incident might occur) vs indicator (sign incident has occurred). Order of volatility: RAM before disk before archives. Chain of custody preserves admissibility.",
+        focus="You are at 60 percent on this domain. Today: memorize the 4 IR phases verbatim (Preparation, Detection and Analysis, Containment Eradication and Recovery, Post-Incident Activity). Know the distinction: precursor (sign incident might occur) vs indicator (sign incident has occurred). Order of volatility: RAM before disk before archives. Chain of custody preserves admissibility. Tonight: walk Room 2 (Living Room, Domain 2); verify couch cushion order matches NIST 800-61 IR phases.",
         citations=[
             ("ISC2 CC Outline 2.3", "incident response purpose, importance, and components are exam-tested"),
             ("NIST SP 800-61 r2", "the canonical 4-phase model the CC exam references; r3 was published April 2025 but the exam outline points at r2"),
             ("NIST SP 800-61 r3", "newer reframing maps the activities to CSF 2.0 Functions Govern Identify Protect Detect Respond Recover"),
         ],
         links=[("Study Guide 2.6 IR lifecycle", "guide.html#26-incident-response-lifecycle"),
-               ("Study Guide 2.8 Evidence handling", "guide.html#28-evidence-handling-chain-of-custody")]),
+               ("Study Guide 2.8 Evidence handling", "guide.html#28-evidence-handling-chain-of-custody"),
+               ("Memory palace walkthrough", "guide.html#d2-the-cc-memory-palace")]),
 
     dict(w=1, d=5, title="Domain 2 BC plus DR: RPO RTO MTD WRT, recovery sites, plus Mock 2",
-        focus="Morning: BCP plus DRP vs IRP scope distinctions, the four recovery objectives (RPO data, RTO downtime, MTD outer limit, WRT post-RTO verification), and the recovery site ladder (hot fast and expensive, warm middle, cold slow and cheap, reciprocal mutual). BCP test types: Checklist, Tabletop, Simulation, Parallel, Full Cutover. Afternoon: Mock 2 timed.",
+        focus="Morning: BCP plus DRP vs IRP scope distinctions, the four recovery objectives (RPO data, RTO downtime, MTD outer limit, WRT post-RTO verification), and the recovery site ladder (hot fast and expensive, warm middle, cold slow and cheap, reciprocal mutual). BCP test types: Checklist, Tabletop, Simulation, Parallel, Full Cutover. Afternoon: Mock 2 timed. Tonight: walk Room 2 again, fireplace and coffee table.",
         citations=[
             ("ISC2 CC Outline 2.1 and 2.2", "BC and DR purpose importance and components"),
             ("NIST SP 800-34 r1 sec 3", "BIA is the foundation: determine processes, identify resources, set recovery priorities"),
@@ -86,41 +90,45 @@ DAYS = [
         ],
         links=[("Mock Exam 2", "exams.html#mock-2-100-questions-isc2-weighted-different-angles"),
                ("Study Guide 2.3 Recovery objectives", "guide.html#23-recovery-objectives-the-four-numbers-isc2-tests"),
-               ("Study Guide 2.4 Recovery sites", "guide.html#24-recovery-sites-the-four-options")]),
+               ("Study Guide 2.4 Recovery sites", "guide.html#24-recovery-sites-the-four-options"),
+               ("Memory palace walkthrough", "guide.html#d2-the-cc-memory-palace")]),
 
     # --- Week 2 (May 25-29): Domain 3, then Domain 5, then Domain 1 + final mocks ---
     dict(w=2, d=1, title="Domain 3 Access Control: DAC, MAC, RBAC, ABAC, AAA, MFA",
-        focus="Read the access control models table until you can produce each from memory. DAC = owner decides. MAC = system enforces labels. RBAC = role tied. ABAC = attributes. Memorize the 5 authentication factors (know, have, are, where, do) and that MFA needs different categories, not just multiple factors. Drill Type 1 (FRR) vs Type 2 (FAR) biometric errors.",
+        focus="Read the access control models table until you can produce each from memory. DAC = owner decides. MAC = system enforces labels. RBAC = role tied. ABAC = attributes. Memorize the 5 authentication factors (know, have, are, where, do) and that MFA needs different categories, not just multiple factors. Drill Type 1 (FRR) vs Type 2 (FAR) biometric errors. Tonight: walk Room 3 (Bedroom, Domain 3); bed posts hold DMRA models, closet shelves hold AAL levels.",
         citations=[
             ("ISC2 CC Outline 3.1 and 3.2", "physical and logical access controls both tested explicitly"),
             ("NIST SP 800-63B sec 4", "AAL1 single-factor, AAL2 multi-factor, AAL3 hardware-cryptographic"),
             ("Bjork interleaving", "mix access-control vocab with network terms today; transfer improves"),
         ],
         links=[("Study Guide Part 3", "guide.html#part-3-access-control-concepts-domain-3-isc2-weight-22"),
-               ("Glossary AAA AAL ABAC", "glossary.html#a")]),
+               ("Glossary AAA AAL ABAC", "glossary.html#a"),
+               ("Memory palace walkthrough", "guide.html#d2-the-cc-memory-palace")]),
 
     dict(w=2, d=2, title="Domain 3 wrap plus Domain 5 part 1: encryption, hashing, PKI",
-        focus="Morning: finish Domain 3 (SSO and federation via SAML, OAuth, OIDC, Kerberos). Afternoon: Domain 5 encryption (AES symmetric, RSA and ECC asymmetric, SHA-2/SHA-3/bcrypt hashing). Memorize the use patterns: confidentiality = recipient public key, authenticity = sender private key, hybrid = asymmetric exchanges symmetric. Non-repudiation requires asymmetric.",
+        focus="Morning: finish Domain 3 (SSO and federation via SAML, OAuth, OIDC, Kerberos). Afternoon: Domain 5 encryption (AES symmetric, RSA and ECC asymmetric, SHA-2/SHA-3/bcrypt hashing). Memorize the use patterns: confidentiality = recipient public key, authenticity = sender private key, hybrid = asymmetric exchanges symmetric. Non-repudiation requires asymmetric. Tonight: walk Rooms 3 and 5.",
         citations=[
             ("ISC2 CC Outline 5.1", "encryption including symmetric asymmetric and hashing tested explicitly"),
             ("Study Guide Appendix B miss-pattern 4", "symmetric does NOT provide non-repudiation; shared keys cannot prove sender"),
             ("Study Guide Appendix B miss-pattern 1", "Mandatory Access Control vs Media Access Control: read questions carefully"),
         ],
         links=[("Study Guide 5.2 Encryption", "guide.html#52-encryption-symmetric-asymmetric-hashing"),
-               ("Study Guide 3.6 SSO and federation", "guide.html#36-sso-single-sign-on-and-federation")]),
+               ("Study Guide 3.6 SSO and federation", "guide.html#36-sso-single-sign-on-and-federation"),
+               ("Memory palace walkthrough", "guide.html#d2-the-cc-memory-palace")]),
 
     dict(w=2, d=3, title="Domain 5 part 2: data lifecycle, logging, hardening, policies, plus Mock 3",
-        focus="Morning: data classification, labeling, retention, destruction (Clear, Purge, Destroy per NIST SP 800-88). SIEM aggregates, SOAR automates, SOC operates. CIS Benchmarks and DISA STIGs for hardening. Current NIST 800-63B password guidance: length over complexity, no forced rotation, check breach corpora. Afternoon: Mock 3 (weighted toward your weak Domains 2 and 4). Score yourself.",
+        focus="Morning: data classification, labeling, retention, destruction (Clear, Purge, Destroy per NIST SP 800-88). SIEM aggregates, SOAR automates, SOC operates. CIS Benchmarks and DISA STIGs for hardening. Current NIST 800-63B password guidance: length over complexity, no forced rotation, check breach corpora. Afternoon: Mock 3 (weighted toward your weak Domains 2 and 4). Score yourself. Tonight: walk Room 5 (Bathroom, Domain 5); sink toothbrushes hold data states, medicine cabinet holds AES modes.",
         citations=[
             ("ISC2 CC Outline 5.1 through 5.4", "data security, hardening, policies, awareness training all on the exam"),
             ("NIST SP 800-88", "data sanitization terms Clear Purge Destroy in ascending strength"),
             ("Practice Exams 2", "Mock 3 is weighted toward Domain 4 (35 questions) and Domain 2 (25 questions)"),
         ],
         links=[("Mock Exam 3", "mocks2.html#mock-3-100-questions-weighted-toward-weak-domains"),
-               ("Study Guide 5.3 Data lifecycle", "guide.html#53-data-handling-lifecycle")]),
+               ("Study Guide 5.3 Data lifecycle", "guide.html#53-data-handling-lifecycle"),
+               ("Memory palace walkthrough", "guide.html#d2-the-cc-memory-palace")]),
 
     dict(w=2, d=4, title="Domain 1 light review plus glossary memorization plus Mock 4",
-        focus="Morning: speed-read Part 1 (you are at 87 percent already). Memorize the ISC2 Code of Ethics canon order (Protect society first, Act honorably, Provide service, Advance the profession last). Drill the policy hierarchy: Regulation, Policy, Standard, Procedure, Guideline, Baseline. Risk treatment: Avoid, Transfer, Mitigate, Accept. Afternoon: Mock 4 (also weighted toward weak domains). Final score check.",
+        focus="Morning: speed-read Part 1 (you are at 87 percent already). Memorize the ISC2 Code of Ethics canon order (Protect society first, Act honorably, Provide service, Advance the profession last). Drill the policy hierarchy: Regulation, Policy, Standard, Procedure, Guideline, Baseline. Risk treatment: Avoid, Transfer, Mitigate, Accept. Afternoon: Mock 4 (also weighted toward weak domains). Final score check. Tonight: walk Room 1 (Foyer, Domain 1).",
         citations=[
             ("ISC2 CC Outline 1.4", "ISC2 Code of Ethics canons are tested in order; earlier canons win when they conflict"),
             ("Study Guide Appendix B miss-pattern 9", "the canon order is the #9 high-frequency miss pattern"),
@@ -128,17 +136,19 @@ DAYS = [
         ],
         links=[("Mock Exam 4", "mocks2.html#mock-4-100-questions-weighted-toward-weak-domains-final-cram"),
                ("Study Guide Part 1", "guide.html#part-1-security-principles-domain-1-isc2-weight-26"),
-               ("Glossary all initialisms", "glossary.html")]),
+               ("Glossary all initialisms", "glossary.html"),
+               ("Memory palace walkthrough", "guide.html#d2-the-cc-memory-palace")]),
 
     dict(w=2, d=5, title="Final review: targeted re-study of weakest mock domain plus exam logistics",
-        focus="Look at your four mock scores. The domain where you scored lowest gets the final day. Re-read that part of the Study Guide, drill the 15 high-frequency miss patterns in Appendix B, and read Appendix C (day-of-exam reminders) twice. Tonight: pack ID, confirm test-center location, plan transportation, set alarm. No new material after 8 PM. Sleep is the consolidation step.",
+        focus="Look at your four mock scores. The domain where you scored lowest gets the final day. Re-read that part of the Study Guide, drill the 15 high-frequency miss patterns in Appendix B, and read Appendix C (day-of-exam reminders) twice. Tonight: pack ID, confirm test-center location, plan transportation, set alarm, then a full 5-room palace walk before bed. No new material after 8 PM. Sleep consolidates everything before tomorrow's exam.",
         citations=[
             ("Study Guide Appendix B", "15 high-frequency miss patterns drilled here will catch the most common careless errors"),
             ("Study Guide Appendix C", "100 questions in 120 minutes = 1.2 min per question; pass at 700/1000"),
             ("Walker 2017", "sleep consolidation: 6-8 hours the night before exam outperforms last-minute cram"),
         ],
         links=[("Study Guide Appendix B miss patterns", "guide.html#appendix-b-high-frequency-miss-patterns"),
-               ("Study Guide Appendix C day-of reminders", "guide.html#appendix-c-day-of-exam-reminders")]),
+               ("Study Guide Appendix C day-of reminders", "guide.html#appendix-c-day-of-exam-reminders"),
+               ("Memory palace walkthrough", "guide.html#d2-the-cc-memory-palace")]),
 ]
 
 assert len(DAYS) == 10, f"expected 10 days, got {len(DAYS)}"
