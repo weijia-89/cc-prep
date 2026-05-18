@@ -207,6 +207,7 @@
 </table>
 <p>Memory anchor: <strong>R-P-S-P-G-B</strong> is the hierarchy. Regulations are external; policy/standards/procedures are mandatory internal; guidelines are recommended only.</p>
 <hr />
+<h2 id="part-2-business-continuity-disaster-recovery-incident-response-domain-2-isc2-weight-10">Part 2 - Business Continuity, Disaster Recovery, Incident Response (Domain 2, ISC2 weight ~10%)</h2>
 <blockquote>
 <p><strong>Memory anchors (palace Room 2: Living Room, Domain 2).</strong> Pick a living room you know. List 5 distinct loci in walkthrough order: couch, TV, fireplace, coffee table, bookshelf, or whatever your room actually has. For each Domain 2 anchor below, choose your own image to place at one locus; vivid and personal beats clever. Capture each choice as a gutter note.</p>
 <ul>
@@ -218,7 +219,6 @@
 </ul>
 <p>See Appendix D.2 for the elicitation framework.</p>
 </blockquote>
-<h2 id="part-2-business-continuity-disaster-recovery-incident-response-domain-2-isc2-weight-10">Part 2 - Business Continuity, Disaster Recovery, Incident Response (Domain 2, ISC2 weight ~10%)</h2>
 <p>Wei is at 60%. <strong>Heavy emphasis</strong> here. Three distinct concepts that ISC2 tests as separate but related.</p>
 <h3 id="21-the-three-plans-distinguished">2.1 The three plans, distinguished</h3>
 <table>
@@ -395,6 +395,8 @@
 <li>Remote logs, archival media</li>
 </ol>
 <p>Image disks <strong>before</strong> rebooting, or you lose RAM.</p>
+<hr />
+<h2 id="part-3-access-control-concepts-domain-3-isc2-weight-22">Part 3 - Access Control Concepts (Domain 3, ISC2 weight ~22%)</h2>
 <blockquote>
 <p><strong>Memory anchors (palace Room 3: Bedroom, Domain 3).</strong> Pick a bedroom you know. List 5 distinct loci in order: bed posts, closet, dresser, window, nightstand, or whatever your bedroom actually has. For each Domain 3 anchor below, choose your own image to place at one locus; vivid and personal beats clever. Capture each choice as a gutter note.</p>
 <ul>
@@ -406,8 +408,6 @@
 </ul>
 <p>See Appendix D.2 for the elicitation framework.</p>
 </blockquote>
-<hr />
-<h2 id="part-3-access-control-concepts-domain-3-isc2-weight-22">Part 3 - Access Control Concepts (Domain 3, ISC2 weight ~22%)</h2>
 <p>Wei is at 75%. Moderate weight.</p>
 <h3 id="31-physical-access-controls">3.1 Physical access controls</h3>
 <p><strong>Layered defense (defense in depth physical):</strong> perimeter → building → floor → room → cabinet → device.</p>
@@ -496,6 +496,9 @@
 <h3 id="36-sso-single-sign-on-and-federation">3.6 SSO (Single Sign-On) and federation</h3>
 <p><strong>SSO</strong> - one login grants access to multiple applications. Reduces password fatigue and re-prompting.</p>
 <p><strong>Federation</strong> - SSO across organizational boundaries via trust relationships. Standards: SAML (Security Assertion Markup Language), OAuth 2.0, OpenID Connect (OIDC), Kerberos (for intranet).</p>
+<p><strong>Risk of SSO:</strong> if the SSO credential is compromised, attacker gets all linked applications. Mitigate with MFA on the SSO login.</p>
+<hr />
+<h2 id="part-4-network-security-domain-4-isc2-weight-24-depth-pass">Part 4 - Network Security (Domain 4, ISC2 weight ~24%) - DEPTH PASS</h2>
 <blockquote>
 <p><strong>Memory anchors (palace Room 4: Kitchen, Domain 4 - YOUR WEAKEST, MAKE THIS VIVID).</strong> Pick a kitchen you know. List 5 distinct loci in order: pantry shelves, fridge door, stove burners, spice rack, attack-jars shelf, or whatever your kitchen actually has. For each Domain 4 anchor below, choose your own image to place at one locus; vivid and personal beats clever. Capture each choice as a gutter note.</p>
 <ul>
@@ -508,9 +511,6 @@
 </ul>
 <p>See Appendix D.2 for the elicitation framework.</p>
 </blockquote>
-<p><strong>Risk of SSO:</strong> if the SSO credential is compromised, attacker gets all linked applications. Mitigate with MFA on the SSO login.</p>
-<hr />
-<h2 id="part-4-network-security-domain-4-isc2-weight-24-depth-pass">Part 4 - Network Security (Domain 4, ISC2 weight ~24%) - DEPTH PASS</h2>
 <p>Wei is at 55%. <strong>Maximum depth.</strong> This is where the cram time goes.</p>
 <h3 id="41-osi-vs-tcpip-models-know-both">4.1 OSI vs TCP/IP models - know both</h3>
 <p><strong>OSI (Open Systems Interconnection) - 7 layers, top to bottom:</strong></p>
@@ -930,7 +930,12 @@
 <li><strong>Power</strong> - UPS (uninterruptible power supply) for short outages, generators for long. PDU (power distribution unit) for rack-level.</li>
 <li><strong>HVAC (Heating, Ventilation, Air Conditioning)</strong> - data centers need cooling. Hot aisle / cold aisle layouts. Humidity matters (too dry = static; too humid = condensation).</li>
 <li><strong>Fire suppression</strong> - water sprinklers damage equipment. Better: gas-based (FM-200, Inergen) or <strong>clean agents</strong> for data centers. Pre-action sprinkler systems delay water release.</li>
+<li><strong>Data center / closet</strong> - locked, monitored, raised floor, fire suppression, environmental sensors.</li>
+<li><strong>Redundancy</strong> - N+1 (one extra), 2N (full duplicate), 2N+1. RAID (Redundant Array of Inexpensive Disks) for storage redundancy.</li>
+<li><strong>MOU/MOA</strong> - agreements with backup vendors, ISPs, cloud providers.</li>
 </ul>
+<hr />
+<h2 id="part-5-security-operations-domain-5-isc2-weight-18">Part 5 - Security Operations (Domain 5, ISC2 weight ~18%)</h2>
 <blockquote>
 <p><strong>Memory anchors (palace Room 5: Bathroom, Domain 5).</strong> Pick a bathroom you know. List 5 distinct loci in order: sink, medicine cabinet, bathtub, mirror, shower curtain, or whatever your bathroom actually has. For each Domain 5 anchor below, choose your own image to place at one locus; vivid and personal beats clever. Capture each choice as a gutter note.</p>
 <ul>
@@ -943,13 +948,6 @@
 </ul>
 <p>See Appendix D.2 for the elicitation framework.</p>
 </blockquote>
-<ul>
-<li><strong>Data center / closet</strong> - locked, monitored, raised floor, fire suppression, environmental sensors.</li>
-<li><strong>Redundancy</strong> - N+1 (one extra), 2N (full duplicate), 2N+1. RAID (Redundant Array of Inexpensive Disks) for storage redundancy.</li>
-<li><strong>MOU/MOA</strong> - agreements with backup vendors, ISPs, cloud providers.</li>
-</ul>
-<hr />
-<h2 id="part-5-security-operations-domain-5-isc2-weight-18">Part 5 - Security Operations (Domain 5, ISC2 weight ~18%)</h2>
 <p>Wei is at 75%. Moderate weight.</p>
 <h3 id="51-data-security">5.1 Data security</h3>
 <p><strong>Data states:</strong></p>

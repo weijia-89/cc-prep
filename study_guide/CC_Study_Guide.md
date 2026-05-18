@@ -127,6 +127,8 @@ Memory anchor: **R-P-S-P-G-B** is the hierarchy. Regulations are external; polic
 
 ---
 
+## Part 2 - Business Continuity, Disaster Recovery, Incident Response (Domain 2, ISC2 weight ~10%)
+
 > **Memory anchors (palace Room 2: Living Room, Domain 2).** Pick a living room you know. List 5 distinct loci in walkthrough order: couch, TV, fireplace, coffee table, bookshelf, or whatever your room actually has. For each Domain 2 anchor below, choose your own image to place at one locus; vivid and personal beats clever. Capture each choice as a gutter note.
 >
 > - **PDCP** (NIST 800-61 r2 IR phases: Preparation / Detection-and-Analysis / Containment-Eradication-Recovery / Post-Incident; short-term-isolate and long-term-rebuild both sit inside phase 3)
@@ -136,8 +138,6 @@ Memory anchor: **R-P-S-P-G-B** is the hierarchy. Regulations are external; polic
 > - **Order of volatility** (collect RAM before disk before archives)
 >
 > See Appendix D.2 for the elicitation framework.
-
-## Part 2 - Business Continuity, Disaster Recovery, Incident Response (Domain 2, ISC2 weight ~10%)
 
 Wei is at 60%. **Heavy emphasis** here. Three distinct concepts that ISC2 tests as separate but related.
 
@@ -249,6 +249,10 @@ When evidence may be used legally, **chain of custody** must be maintained: who 
 
 Image disks **before** rebooting, or you lose RAM.
 
+---
+
+## Part 3 - Access Control Concepts (Domain 3, ISC2 weight ~22%)
+
 > **Memory anchors (palace Room 3: Bedroom, Domain 3).** Pick a bedroom you know. List 5 distinct loci in order: bed posts, closet, dresser, window, nightstand, or whatever your bedroom actually has. For each Domain 3 anchor below, choose your own image to place at one locus; vivid and personal beats clever. Capture each choice as a gutter note.
 >
 > - **DMRA** (access control models: DAC owner-decides / MAC system-enforces-labels / RBAC role-tied / ABAC attribute-tied; do not confuse Mandatory Access Control with Media Access Control)
@@ -258,10 +262,6 @@ Image disks **before** rebooting, or you lose RAM.
 > - **IAAA + identity protocols** (Identification / Authentication / Authorization / Accounting; Kerberos for intranet ticket-based, SAML for federated SSO via XML, OAuth for authorization delegation)
 >
 > See Appendix D.2 for the elicitation framework.
-
----
-
-## Part 3 - Access Control Concepts (Domain 3, ISC2 weight ~22%)
 
 Wei is at 75%. Moderate weight.
 
@@ -345,6 +345,12 @@ Per NIST SP 800-63B, **AAL (Authenticator Assurance Levels):**
 
 **Federation** - SSO across organizational boundaries via trust relationships. Standards: SAML (Security Assertion Markup Language), OAuth 2.0, OpenID Connect (OIDC), Kerberos (for intranet).
 
+**Risk of SSO:** if the SSO credential is compromised, attacker gets all linked applications. Mitigate with MFA on the SSO login.
+
+---
+
+## Part 4 - Network Security (Domain 4, ISC2 weight ~24%) - DEPTH PASS
+
 > **Memory anchors (palace Room 4: Kitchen, Domain 4 - YOUR WEAKEST, MAKE THIS VIVID).** Pick a kitchen you know. List 5 distinct loci in order: pantry shelves, fridge door, stove burners, spice rack, attack-jars shelf, or whatever your kitchen actually has. For each Domain 4 anchor below, choose your own image to place at one locus; vivid and personal beats clever. Capture each choice as a gutter note.
 >
 > - **OSI 7 layers** (top to bottom: Application / Presentation / Session / Transport / Network / Data Link / Physical; mnemonic "All People Seem To Need Data Processing")
@@ -355,12 +361,6 @@ Per NIST SP 800-63B, **AAL (Authenticator Assurance Levels):**
 > - **Port chunks** (file/shell 20-23, mail 25/110/143, web 80/443, names 53/67/123, Microsoft 135/445/3389, directory 389/636, management 161/162)
 >
 > See Appendix D.2 for the elicitation framework.
-
-**Risk of SSO:** if the SSO credential is compromised, attacker gets all linked applications. Mitigate with MFA on the SSO login.
-
----
-
-## Part 4 - Network Security (Domain 4, ISC2 weight ~24%) - DEPTH PASS
 
 Wei is at 55%. **Maximum depth.** This is where the cram time goes.
 
@@ -591,6 +591,14 @@ ISC2 explicitly tests these (Domain 4.3):
 - **Power** - UPS (uninterruptible power supply) for short outages, generators for long. PDU (power distribution unit) for rack-level.
 - **HVAC (Heating, Ventilation, Air Conditioning)** - data centers need cooling. Hot aisle / cold aisle layouts. Humidity matters (too dry = static; too humid = condensation).
 - **Fire suppression** - water sprinklers damage equipment. Better: gas-based (FM-200, Inergen) or **clean agents** for data centers. Pre-action sprinkler systems delay water release.
+- **Data center / closet** - locked, monitored, raised floor, fire suppression, environmental sensors.
+- **Redundancy** - N+1 (one extra), 2N (full duplicate), 2N+1. RAID (Redundant Array of Inexpensive Disks) for storage redundancy.
+- **MOU/MOA** - agreements with backup vendors, ISPs, cloud providers.
+
+---
+
+## Part 5 - Security Operations (Domain 5, ISC2 weight ~18%)
+
 > **Memory anchors (palace Room 5: Bathroom, Domain 5).** Pick a bathroom you know. List 5 distinct loci in order: sink, medicine cabinet, bathtub, mirror, shower curtain, or whatever your bathroom actually has. For each Domain 5 anchor below, choose your own image to place at one locus; vivid and personal beats clever. Capture each choice as a gutter note.
 >
 > - **Data states** (at rest stored / in transit moving / in use processing in memory; protections rise from full-disk encryption through TLS/VPN/IPsec to TEE or homomorphic encryption, hardest at in-use)
@@ -601,14 +609,6 @@ ISC2 explicitly tests these (Domain 4.3):
 > - **SIEM / SOAR / SOC** (aggregates logs / automates response / is the team; do not confuse SOC with System-on-Chip)
 >
 > See Appendix D.2 for the elicitation framework.
-
-- **Data center / closet** - locked, monitored, raised floor, fire suppression, environmental sensors.
-- **Redundancy** - N+1 (one extra), 2N (full duplicate), 2N+1. RAID (Redundant Array of Inexpensive Disks) for storage redundancy.
-- **MOU/MOA** - agreements with backup vendors, ISPs, cloud providers.
-
----
-
-## Part 5 - Security Operations (Domain 5, ISC2 weight ~18%)
 
 Wei is at 75%. Moderate weight.
 
