@@ -454,7 +454,12 @@ aside.user-note.edit {
  * makes wide tables horizontally scrollable. */
 @media (max-width: 600px) {
   html { font-size: 15px; }
-  main { padding: 0 1em; margin: 1.5em auto 2em auto; }
+  main {
+    padding: 0 1em;
+    margin: 1.5em auto 2em auto;
+    display: flex;
+    flex-direction: column;
+  }
 
   .hero { margin: 0 0 1.8em 0; padding: 0 0 1.1em 0; }
   .hero__title { font-size: 1.55rem; line-height: 1.18; }
@@ -488,10 +493,9 @@ aside.user-note.edit {
   .daynav .daynav__meta { font-size: 0.7rem; flex-basis: 100%; order: 3; }
 
   /* On phones, push all notes (citations + user notes) to the bottom of the
-   * page instead of letting them interrupt the reading flow. Achieved by
-   * making <main> a flex column and giving asides a high order value so they
-   * sort after content but before the daynav footer. */
-  main { display: flex; flex-direction: column; }
+   * page instead of letting them interrupt the reading flow. <main> is set to
+   * flex column above so we can use `order` to sort asides after content but
+   * before the daynav footer. */
   aside.margin-note,
   aside.user-note {
     order: 90;
