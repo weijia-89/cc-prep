@@ -508,3 +508,208 @@ aside.user-note.edit {
   /* Visual gap between main content and the notes group. */
   main > aside:first-of-type { margin-top: 2.5em; }
 }
+
+/* === Notes feature (add/edit/delete UI, banners, tools) === */
+
+/* "+ note" button: small, unobtrusive, sits in the left gutter zone with
+ * the user-notes on wide screens; inline on narrow screens. */
+button.add-note-btn {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  color: var(--moss);
+  background: transparent;
+  border: 1px dashed #87A187;
+  border-radius: 3px;
+  padding: 0.15em 0.55em;
+  margin: 0.3em 0 1em 0;
+  cursor: pointer;
+  letter-spacing: 0.02em;
+  display: inline-block;
+}
+button.add-note-btn:hover {
+  background: #DDE6DD;
+  border-style: solid;
+}
+
+@media (min-width: 1050px) {
+  button.add-note-btn {
+    float: left;
+    clear: left;
+    width: 13em;
+    margin-left: -16em;
+    margin-top: 0.1em;
+    text-align: center;
+  }
+}
+
+/* Note add/edit inline form. */
+form.note-form {
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  background: #FFF8E1;
+  border-left: 2px solid var(--amber);
+  border-radius: 0 3px 3px 0;
+  padding: 0.5em 0.7em;
+  margin: 0.4em 0 1em 0;
+  display: block;
+}
+@media (min-width: 1050px) {
+  form.note-form--add {
+    float: left;
+    clear: left;
+    width: 14em;
+    margin-left: -16em;
+    margin-top: 0.2em;
+  }
+}
+form.note-form textarea {
+  width: 100%;
+  box-sizing: border-box;
+  font-family: var(--sans);
+  font-size: 0.78rem;
+  line-height: 1.4;
+  border: 1px solid var(--paper-deep);
+  background: var(--paper);
+  padding: 0.4em 0.55em;
+  border-radius: 2px;
+  resize: vertical;
+  min-height: 3em;
+  color: var(--ink);
+}
+form.note-form button {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  padding: 0.25em 0.7em;
+  margin-top: 0.4em;
+  margin-right: 0.3em;
+  border-radius: 2px;
+  border: 1px solid var(--moss);
+  background: var(--moss);
+  color: var(--paper);
+  cursor: pointer;
+}
+form.note-form button[type="button"]:not(.note-form__delete) {
+  background: transparent;
+  color: var(--moss);
+}
+form.note-form button.note-form__delete {
+  background: transparent;
+  border-color: var(--rust);
+  color: var(--rust);
+}
+form.note-form button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Edit-mode aside styling (already partially handled by aside.user-note.edit
+ * via earlier rule; this expands sizing for the embedded form). */
+aside.user-note.edit {
+  padding: 0;
+  background: transparent;
+  border-left-color: var(--amber);
+}
+aside.user-note.edit form.note-form {
+  margin: 0;
+}
+
+/* Server-start banner on index. */
+.server-banner {
+  margin: 0 0 2em 0;
+}
+.server-banner__cmd {
+  display: flex;
+  align-items: center;
+  gap: 0.6em;
+  margin: 0.6em 0 0.4em 0;
+  font-family: var(--mono);
+  font-size: 0.85rem;
+}
+.server-banner__cmd code {
+  background: var(--paper-deep);
+  padding: 0.3em 0.7em;
+  border-radius: 3px;
+  flex: 1;
+  user-select: all;
+}
+.server-banner__copy {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  padding: 0.3em 0.8em;
+  background: var(--moss);
+  color: var(--paper);
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.server-banner__copy:hover { background: var(--ink-soft); }
+.server-banner__detail {
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+  margin: 0.4em 0 0 0;
+}
+
+/* Mode pill (non-index pages). Bottom-left thumb-zone friendly. */
+.mode-pill {
+  position: fixed;
+  bottom: 0.8em;
+  left: 0.8em;
+  font-family: var(--sans);
+  font-size: 0.66rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0.3em 0.7em;
+  border-radius: 12px;
+  background: var(--paper-card);
+  color: var(--ink-soft);
+  border: 1px solid var(--paper-deep);
+  cursor: help;
+  z-index: 50;
+  opacity: 0.7;
+}
+.mode-pill:hover { opacity: 1; }
+.mode-pill--be { color: var(--moss); border-color: var(--moss); }
+.mode-pill--ls { color: var(--ochre); border-color: var(--ochre); }
+.mode-pill--pages { color: var(--ink-faint); border-color: var(--paper-deep); }
+
+/* Notes tools (export / import / clear) on index. */
+.notes-tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7em;
+  align-items: center;
+  margin: 0.8em 0 0.6em 0;
+}
+.notes-tools button,
+.notes-tools__import {
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  padding: 0.5em 0.9em;
+  border-radius: 3px;
+  border: 1px solid var(--sage);
+  background: var(--paper-card);
+  color: var(--moss);
+  cursor: pointer;
+}
+.notes-tools button:hover,
+.notes-tools__import:hover {
+  background: var(--paper-deep);
+  border-color: var(--moss);
+}
+.notes-tools button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  background: var(--paper-card);
+}
+.notes-tools__import input[type="file"] {
+  display: none;
+}
+
+/* Print: hide all notes affordances (banners, pills, buttons, forms). */
+@media print {
+  .server-banner,
+  .mode-pill,
+  .notes-tools,
+  button.add-note-btn,
+  form.note-form { display: none !important; }
+}

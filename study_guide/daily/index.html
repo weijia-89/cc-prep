@@ -5,9 +5,20 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>ISC2 CC cram program</title>
 <link rel="stylesheet" href="style.css">
+<script src="notes.js" defer></script>
 </head>
 <body>
 <main>
+
+<div id="server-banner" class="callout callout--info server-banner" hidden>
+  <span class="callout__label">Notes backend</span>
+  <p id="server-banner-msg">Checking backend...</p>
+  <div class="server-banner__cmd">
+    <code id="server-banner-cmd">python3 scripts/notes_server.py</code>
+    <button type="button" class="server-banner__copy" data-copy-target="server-banner-cmd">copy</button>
+  </div>
+  <p class="server-banner__detail">Run from cc-prep root. Then open <code>http://localhost:8765/</code> for full add/edit/delete. Without the backend, notes save to your browser only and can be exported as markdown below.</p>
+</div>
 
 <header class="hero">
   <div class="hero__category">ISC2 CC cram program</div>
@@ -32,6 +43,18 @@
   <li><a href="mocks2.html">Practice Exams Mocks 3-4</a> - weighted toward Domain 4 and Domain 2</li>
   <li><a href="glossary.html">Glossary</a> - every initialism defined</li>
 </ul>
+
+<h2 id="notes-tools">Notes tools</h2>
+<p id="notes-tools-summary" class="hero__subtitle">Loading...</p>
+<div class="notes-tools">
+  <button type="button" id="notes-export" disabled>Export browser notes as markdown</button>
+  <label class="notes-tools__import">
+    Import notes from markdown
+    <input type="file" id="notes-import" accept=".md,text/markdown,text/plain">
+  </label>
+  <button type="button" id="notes-clear-ls" disabled>Clear all browser notes</button>
+</div>
+<p class="server-banner__detail"><strong>Export</strong> downloads your browser-stored notes as a single <code>daily_notes_export.md</code> file. <strong>Import</strong> parses the same format and merges into your browser store (or posts to the backend when it is running). Both operations preserve note IDs so a round-trip through the backend keeps the markdown clean.</p>
 
 <script>
 const START = "2026-05-18";

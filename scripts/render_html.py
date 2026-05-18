@@ -154,6 +154,82 @@ DAYS = [
 assert len(DAYS) == 10, f"expected 10 days, got {len(DAYS)}"
 
 
+# === User notes (read daily_notes.md, bake into HTML at build time) ===
+
+DAILY_NOTES_MD = ROOT / "study_guide" / "daily_notes.md"
+
+_NOTES_OPEN_RE = re.compile(r"^\s*<!--\s*user-notes:([a-z0-9-]+)\s*-->\s*$")
+_NOTES_CLOSE_RE = re.compile(r"^\s*<!--\s*/user-notes:([a-z0-9-]+)\s*-->\s*$")
+_NOTE_LINE_RE = re.compile(
+    r"^\*(?P<text>.*)\*\{\.user-note\s+#(?P<id>note-[a-z0-9-]+-\d+)\}\s*$"
+)
+
+
+def _unescape_attrs(text: str) -> str:
+    """Inverse of notes_server.escape_attrs_text. Single-pass left-to-right
+    so \\\\* does not double-decode."""
+    out = []
+    i = 0
+    while i < len(text):
+        ch = text[i]
+        if ch == "\\" and i + 1 < len(text):
+            nxt = text[i + 1]
+            if nxt in ("\\", "*", "{", "}"):
+                out.append(nxt)
+                i += 2
+                continue
+        out.append(ch)
+        i += 1
+    return "".join(out)
+
+
+def parse_daily_notes() -> dict:
+    """Read daily_notes.md and return {anchor: [(note_id, text), ...]} mapping.
+    Returns empty dict if file missing. Notes preserve their source order."""
+    if not DAILY_NOTES_MD.exists():
+        return {}
+    lines = DAILY_NOTES_MD.read_text(encoding="utf-8").splitlines()
+    notes: dict = {}
+    current_anchor = None
+    for line in lines:
+        m_open = _NOTES_OPEN_RE.match(line)
+        if m_open:
+            current_anchor = m_open.group(1)
+            notes.setdefault(current_anchor, [])
+            continue
+        m_close = _NOTES_CLOSE_RE.match(line)
+        if m_close:
+            current_anchor = None
+            continue
+        if current_anchor is None:
+            continue
+        m_note = _NOTE_LINE_RE.match(line)
+        if m_note:
+            notes[current_anchor].append(
+                (m_note.group("id"), _unescape_attrs(m_note.group("text")))
+            )
+    return notes
+
+
+def render_user_notes_html(anchor: str, notes_by_anchor: dict) -> str:
+    """Render baked-in user notes for one anchor as a stream of <aside>
+    elements. Returns empty string if no notes for this anchor.
+
+    Each aside carries data-note-id and data-anchor so the inline JS can
+    wire edit/delete affordances to the right markdown line via the BE.
+    """
+    bucket = notes_by_anchor.get(anchor, [])
+    if not bucket:
+        return ""
+    parts = []
+    for note_id, text in bucket:
+        parts.append(
+            f'<aside class="user-note" data-note-id="{h(note_id)}" '
+            f'data-anchor="{h(anchor)}" data-source="baked">{h(text)}</aside>'
+        )
+    return "".join(parts)
+
+
 # === Markdown rendering ===
 
 def _collapse_dashes(s: str) -> str:
@@ -188,6 +264,7 @@ PAGE_TMPL = Template("""<!doctype html>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{{ title }}</title>
 <link rel="stylesheet" href="style.css">
+<script src="notes.js" defer></script>
 </head>
 <body>
 <main>
@@ -198,21 +275,29 @@ PAGE_TMPL = Template("""<!doctype html>
 """)
 
 
-def render_day_page(idx: int) -> str:
+def render_day_page(idx: int, notes_by_anchor: dict | None = None) -> str:
     d = DAYS[idx]
     n = idx + 1
+    notes_by_anchor = notes_by_anchor or {}
+    anchor_focus = f"day-{n}-focus"
+    anchor_cites = f"day-{n}-citations"
+    anchor_links = f"day-{n}-links"
+
     cites_html = "".join(
         f'<aside class="margin-note"><strong>{h(label)}</strong>: {gloss}</aside>'
         for (label, gloss) in d["citations"]
     )
-    links_html = ""
     if d["links"]:
-        links_html = "<h2>Links</h2><ul>" + "".join(
+        links_list_html = "<ul>" + "".join(
             f'<li><a href="{h(href)}">{h(label)}</a></li>'
             for (label, href) in d["links"]
         ) + "</ul>"
     else:
-        links_html = '<h2>Links</h2><p><em>No external links today. Drill from memory.</em></p>'
+        links_list_html = '<p><em>No external links today. Drill from memory.</em></p>'
+
+    focus_notes_html = render_user_notes_html(anchor_focus, notes_by_anchor)
+    cites_notes_html = render_user_notes_html(anchor_cites, notes_by_anchor)
+    links_notes_html = render_user_notes_html(anchor_links, notes_by_anchor)
 
     prev_href = f"day-{n-1:02d}.html" if n > 1 else "index.html"
     next_href = f"day-{n+1:02d}.html" if n < 10 else "index.html"
@@ -230,13 +315,19 @@ def render_day_page(idx: int) -> str:
   </div>
 </header>
 
-<div class="focus">
+<div class="focus" data-notable-anchor="{anchor_focus}">
   <span class="focus__label">Today's focus</span>
   <p>{h(d['focus'])}</p>
 </div>
-{cites_html}
+{focus_notes_html}
 
-{links_html}
+<span class="notable-anchor" data-notable-anchor="{anchor_cites}" aria-hidden="true"></span>
+{cites_html}
+{cites_notes_html}
+
+<h2 id="{anchor_links}" data-notable-anchor="{anchor_links}">Links</h2>
+{links_list_html}
+{links_notes_html}
 
 <nav class="daynav">
   <a href="{prev_href}">{prev_label}</a>
@@ -255,6 +346,16 @@ def render_index() -> str:
         for i, d in enumerate(DAYS)
     )
     body = f"""
+<div id="server-banner" class="callout callout--info server-banner" hidden>
+  <span class="callout__label">Notes backend</span>
+  <p id="server-banner-msg">Checking backend...</p>
+  <div class="server-banner__cmd">
+    <code id="server-banner-cmd">python3 scripts/notes_server.py</code>
+    <button type="button" class="server-banner__copy" data-copy-target="server-banner-cmd">copy</button>
+  </div>
+  <p class="server-banner__detail">Run from cc-prep root. Then open <code>http://localhost:8765/</code> for full add/edit/delete. Without the backend, notes save to your browser only and can be exported as markdown below.</p>
+</div>
+
 <header class="hero">
   <div class="hero__category">ISC2 CC cram program</div>
   <h1 class="hero__title">2 weeks, Mon-Fri, 10 study days</h1>
@@ -278,6 +379,18 @@ def render_index() -> str:
   <li><a href="mocks2.html">Practice Exams Mocks 3-4</a> - weighted toward Domain 4 and Domain 2</li>
   <li><a href="glossary.html">Glossary</a> - every initialism defined</li>
 </ul>
+
+<h2 id="notes-tools">Notes tools</h2>
+<p id="notes-tools-summary" class="hero__subtitle">Loading...</p>
+<div class="notes-tools">
+  <button type="button" id="notes-export" disabled>Export browser notes as markdown</button>
+  <label class="notes-tools__import">
+    Import notes from markdown
+    <input type="file" id="notes-import" accept=".md,text/markdown,text/plain">
+  </label>
+  <button type="button" id="notes-clear-ls" disabled>Clear all browser notes</button>
+</div>
+<p class="server-banner__detail"><strong>Export</strong> downloads your browser-stored notes as a single <code>daily_notes_export.md</code> file. <strong>Import</strong> parses the same format and merges into your browser store (or posts to the backend when it is running). Both operations preserve note IDs so a round-trip through the backend keeps the markdown clean.</p>
 
 <script>
 const START = "{DEFAULT_START}";
@@ -343,9 +456,12 @@ def render_corpus_page(md_path: Path, title: str, subtitle: str = "") -> str:
 def main() -> int:
     OUT.mkdir(parents=True, exist_ok=True)
 
+    notes_by_anchor = parse_daily_notes()
+    note_count = sum(len(v) for v in notes_by_anchor.values())
+
     for i in range(10):
         out_path = OUT / f"day-{i+1:02d}.html"
-        out_path.write_text(render_day_page(i), encoding="utf-8")
+        out_path.write_text(render_day_page(i, notes_by_anchor), encoding="utf-8")
 
     (OUT / "index.html").write_text(render_index(), encoding="utf-8")
 
@@ -367,6 +483,7 @@ def main() -> int:
         encoding="utf-8")
 
     print(f"rendered: 10 daily pages + index + 4 corpus pages to {OUT}")
+    print(f"  baked-in user notes: {note_count} across {len(notes_by_anchor)} anchors")
     return 0
 
 
