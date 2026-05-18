@@ -444,10 +444,27 @@ if (idx === -1) {{
     return PAGE_TMPL.render(title="ISC2 CC cram program", body=body)
 
 
-def render_corpus_page(md_path: Path, title: str, subtitle: str = "") -> str:
+def render_corpus_page(md_path: Path, title: str, subtitle: str = "",
+                       basename: str = "", notes_by_anchor: dict | None = None) -> str:
     md_text = md_path.read_text(encoding="utf-8")
     body_html = render_markdown(md_text)
     body_html = re.sub(r"^\s*<h1[^>]*>.*?</h1>\s*", "", body_html, count=1, flags=re.DOTALL)
+
+    # Bake in user notes anchored at every h2 on the corpus page.
+    # Anchor namespace: corpus-<basename>-<slug> so guide/exams/mocks2/glossary
+    # don't collide with each other or with day-* anchors.
+    notes_by_anchor = notes_by_anchor or {}
+    if basename:
+        def _anchor_h2(m: re.Match) -> str:
+            full = m.group(0)
+            id_match = re.search(r'id="([^"]+)"', full)
+            if not id_match:
+                return full
+            anchor = f"corpus-{basename}-{id_match.group(1)}"
+            tagged = full.replace(">", f' data-notable-anchor="{anchor}">', 1)
+            return tagged + render_user_notes_html(anchor, notes_by_anchor)
+        body_html = re.sub(r'<h2[^>]*>.*?</h2>', _anchor_h2, body_html, flags=re.DOTALL)
+
     hero = f"""
 <header class="hero">
   <div class="hero__category">CC cram corpus</div>
@@ -478,19 +495,23 @@ def main() -> int:
 
     (OUT / "guide.html").write_text(
         render_corpus_page(SG_MD, "CC Study Guide",
-            "5 domains plus appendices. Weighted to your prelim scores. Network Security at maximum depth."),
+            "5 domains plus appendices. Weighted to your prelim scores. Network Security at maximum depth.",
+            basename="guide", notes_by_anchor=notes_by_anchor),
         encoding="utf-8")
     (OUT / "exams.html").write_text(
         render_corpus_page(PE_MD, "Practice Exams - Mocks 1 and 2",
-            "ISC2-weighted, 100 questions each. Take timed at 2 hours."),
+            "ISC2-weighted, 100 questions each. Take timed at 2 hours.",
+            basename="exams", notes_by_anchor=notes_by_anchor),
         encoding="utf-8")
     (OUT / "mocks2.html").write_text(
         render_corpus_page(PE2_MD, "Practice Exams - Mocks 3 and 4",
-            "Weighted toward Domain 4 Network Security and Domain 2 BC/DR/IR (your weak domains)."),
+            "Weighted toward Domain 4 Network Security and Domain 2 BC/DR/IR (your weak domains).",
+            basename="mocks2", notes_by_anchor=notes_by_anchor),
         encoding="utf-8")
     (OUT / "glossary.html").write_text(
         render_corpus_page(GLOS_MD, "ISC2 CC Glossary",
-            "Every initialism defined. Drill the alphabet soup."),
+            "Every initialism defined. Drill the alphabet soup.",
+            basename="glossary", notes_by_anchor=notes_by_anchor),
         encoding="utf-8")
 
     print(f"rendered: 10 daily pages + index + 4 corpus pages to {OUT}")

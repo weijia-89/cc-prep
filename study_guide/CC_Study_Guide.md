@@ -95,6 +95,8 @@ ISC2 names three categories:
 - **Compensating** (alternative when primary control infeasible - extra logging when MFA not possible)
 - **Recovery** (restores operations - backups, failover sites)
 
+Memory anchor: **PDC + 3 helpers**. Preventive, Detective, and Corrective form a before-during-after timeline. The three helpers are Deterrent (psychological-before), Compensating (workaround when the primary control is infeasible), and Recovery (restore).
+
 ### 1.4 ISC2 Code of Ethics
 
 > **Anchor reminder (Room 1 locus).** Pick one image that captures **PASA canon order** (Protect society first, Act honorably, Service to principals, Advance the profession last; earlier canons win when they conflict). Place it at a Foyer locus; capture as gutter note.
@@ -190,6 +192,14 @@ The BIA produces the **recovery objectives** that drive BCP/DRP design.
 
 Trade-off: hot site = fast recovery, high cost. Cold site = slow recovery, low cost.
 
+**Backup types (ISC2 outline 2.2).** Memory anchor: **FID** = Full / Incremental / Differential, in order of backup size and ease of restore.
+
+- **Full backup** - everything every time. Largest backup file; simplest restore (one tape).
+- **Incremental backup** - only what changed since the LAST backup of any type. Smallest daily backup; complex restore (last full plus every incremental since).
+- **Differential backup** - only what changed since the LAST FULL backup. Medium size, growing daily; restore needs only two tapes (last full plus most recent differential).
+
+Restore heuristic: **incremental is many tapes; differential is two.** Incremental backups are cheapest to make and most expensive to restore; differential lands in the middle.
+
 ### 2.5 BCP/DRP testing - five test types in increasing rigor
 
 1. **Checklist (review)** - read through the plan, verify completeness. Lowest cost, lowest realism.
@@ -267,7 +277,7 @@ Wei is at 75%. Moderate weight.
 
 ### 3.1 Physical access controls
 
-**Layered defense (defense in depth physical):** perimeter → building → floor → room → cabinet → device.
+**Layered defense (defense in depth physical):** perimeter → building → floor → room → cabinet → device. Memory anchor: **PBFRCD** (Perimeter / Building / Floor / Room / Cabinet / Device); outside-in, biggest to smallest.
 
 **Common physical controls ISC2 names:**
 
@@ -440,6 +450,8 @@ ISC2 tests OSI more than TCP/IP, but expects familiarity with both.
 | 5432 | PostgreSQL | PostgreSQL database |
 
 **Memory pattern:** the secure-TLS variant typically increments the cleartext port (HTTP 80 → HTTPS 443, but the pattern is not always +363). Memorize the ones above.
+
+**DHCP handshake (DORA).** Discover (client broadcasts looking for a server) → Offer (server proposes a lease) → Request (client picks one server) → Acknowledge (server confirms). Same letters as the cartoon explorer. Ports 67 server, 68 client.
 
 **TCP vs UDP:**
 
@@ -642,7 +654,8 @@ Common algorithms:
 - **Diffie-Hellman (DH)** - key exchange, not encryption. Establishes a shared secret over a public channel.
 - **DSA / ECDSA** - digital signatures.
 
-**Use patterns:**
+**Use patterns.** Memory anchor: **public to lock, private to prove.** Recipient's public key locks the data (confidentiality); the sender's private key signs it (authenticity, non-repudiation). Symmetric keys never prove identity because both parties hold the same secret.
+
 - Encrypt with **recipient's public key** → only their private key decrypts (confidentiality).
 - Sign with **your private key** → anyone with your public key can verify (authenticity, non-repudiation).
 - Hybrid: use asymmetric to exchange a symmetric key, then symmetric for bulk data. This is how TLS works.
@@ -669,6 +682,8 @@ Algorithms:
 - **Certificate** - binds a public key to an identity. X.509 standard.
 - **CRL (Certificate Revocation List)** - list of revoked certs.
 - **OCSP (Online Certificate Status Protocol)** - real-time revocation check.
+
+Memory anchor: **L for List, S for Status.** CRL is a downloadable List of revoked certs (stale between pulls). OCSP is a live Status query (current to the second).
 
 ### 5.3 Data handling lifecycle
 
@@ -812,6 +827,8 @@ IaaS (most customer) → PaaS → SaaS → FaaS (least customer).
 
 Safe: SHA-256, SHA-3, bcrypt, scrypt, Argon2. Avoid: MD5, SHA-1.
 
+Memory anchor: **MD5 → SHA-1 → SHA-256 / SHA-3 → Argon2 / bcrypt / scrypt.** The chain reads broken → broken → current minimum → password-specific slow hash. MD5 and SHA-1 collide and must not be used for new work; SHA-256 and SHA-3 are the current general-purpose minimum; the slow hashes are deliberately expensive for password storage.
+
 ### Data destruction
 
 Clear (overwrite) → Purge (degauss, advanced overwrite) → Destroy (physical).
@@ -819,6 +836,17 @@ Clear (overwrite) → Purge (degauss, advanced overwrite) → Destroy (physical)
 ---
 
 ## Appendix B - High-frequency miss patterns
+
+> **Memory anchors for Appendix B miss patterns.** Each of the 15 patterns
+> below corresponds to a piece of content you already anchored in your
+> palace (D.2). Walk the relevant room, find the existing locus for the
+> concept, and add ONE secondary detail at that locus that captures the
+> miss-pattern trap (the disambiguation, the rule, the off-by-one). For
+> example: at the Bedroom four-poster bed locus where DAC/MAC/RBAC/ABAC
+> live, imagine a small sign on the MAC post that reads "Mandatory != Media"
+> for pattern 1. Two minutes per pattern; 30 minutes total across the week.
+>
+> See Appendix D.2 for the palace map and D.2.1 for the pre-built fallback.
 
 These are the concepts that consistently trip CC candidates. Drill these.
 
@@ -967,6 +995,7 @@ These are the high-leverage acronyms and acrostics for content that is order-sen
 - **Five fingers** authentication factors: Know (pinky), Have (thumb), Are (index), Where (ring), Do (middle).
 - **SLE x ARO = ALE** the only quantitative risk equation the exam asks.
 - **RPS-PGB** policy hierarchy: Regulation > Policy > Standard / Procedure > Guideline / Baseline.
+- **PDC + 3 helpers** control functions: Preventive / Detective / Corrective form a before-during-after timeline. The three helpers are Deterrent (psychological-before), Compensating (workaround), and Recovery (restore).
 
 **Domain 2 BC, DR, IR**
 - **PDCP** NIST 800-61 r2 IR phases: Preparation, Detection and Analysis, Containment Eradication Recovery, Post-Incident Activity. (SANS uses PICERL: Preparation, Identification, Containment, Eradication, Recovery, Lessons learned. ISC2 references NIST, so use PDCP for the exam.)
@@ -975,12 +1004,14 @@ These are the high-leverage acronyms and acrostics for content that is order-sen
 - **CTSPF** BCP test types weakest to strongest: Checklist, Tabletop, Simulation, Parallel, Full Cutover.
 - **Order of volatility:** RAM > network state > running processes > disk > archives. The "fast stuff first" rule.
 - **RTO + WRT <= MTD** the recovery-objective inequality. RPO is independent; it measures data not time.
+- **FID** backup types: Full (everything, one-tape restore), Incremental (since last backup of any type, many tapes to restore), Differential (since last full, two tapes to restore). Heuristic: incremental is cheapest to make and most expensive to restore.
 
 **Domain 3 Access Control**
 - **DMRA** access control models in increasing flexibility: DAC, MAC, RBAC, ABAC. Or mnemonic sentence: "Dad's Military Rule, Anything's Better Allowed Carefully" - DAC, MAC, RBAC, ABAC.
 - **FRR = Type 1 = false rejection** (legitimate user denied, annoying). **FAR = Type 2 = false acceptance** (impostor admitted, dangerous). **CER = crossover**, lower is better.
 - **AAA**: Authentication (who you are), Authorization (what you can do), Accounting (what you did). Add **I** for Identification (claiming you are someone) at the front when ISC2 wants IAAA.
 - **Need-to-know AND clearance.** Both required. Clearance is the ceiling; need-to-know is the specific item.
+- **PBFRCD** layered physical defense: Perimeter / Building / Floor / Room / Cabinet / Device. Outside-in, biggest to smallest.
 
 **Domain 4 Network Security**
 - **APSTNDP** All People Seem To Need Data Processing - OSI layers Application down to Physical.
@@ -996,6 +1027,8 @@ These are the high-leverage acronyms and acrostics for content that is order-sen
   - **Management chunk:** 161 SNMP query, 162 SNMP trap
 - **Private IPv4:** 10/8 (Class A), 172.16/12 (Class B), 192.168/16 (Class C). Memorize as "ten - one seventy two dot sixteen - one ninety two dot one sixty eight."
 - **WiFi escalation:** WEP (broken), WPA (transitional), WPA2 (AES-CCMP current minimum), WPA3 (SAE / Dragonfly, forward secrecy).
+- **DORA** DHCP handshake: Discover (client broadcast) / Offer (server proposes) / Request (client picks) / Acknowledge (server confirms). Ports 67 server, 68 client.
+- **SYN / SYN-ACK / ACK** TCP three-way handshake. Knock, answer, enter.
 
 **Domain 5 Security Operations**
 - **3 data states:** at Rest, in Transit, in Use. Mnemonic shape: RTU. Different protections at each.
@@ -1003,6 +1036,9 @@ These are the high-leverage acronyms and acrostics for content that is order-sen
 - **CPD** NIST 800-88 sanitization, weakest to strongest: Clear, Purge, Destroy. Clear = logical overwrite. Purge = degauss or cryptographic erase. Destroy = physical shred or incinerate.
 - **PKI components**: CA issues, RA verifies identity, certificate binds key to identity, CRL or OCSP checks revocation. Sequence: identity goes to RA, RA tells CA, CA issues cert, end users check CRL or OCSP.
 - **SIEM / SOAR / SOC**: SIEM aggregates logs and correlates (the platform). SOAR automates response playbooks (the orchestration layer). SOC is the human team that runs both (the people). Don't confuse SOC with SoC = System on a Chip.
+- **Public to lock, private to prove.** Recipient's public key locks data (confidentiality). Sender's private key signs (authenticity, non-repudiation). Symmetric keys never prove identity.
+- **L for List, S for Status.** CRL is a downloadable List of revoked certs (stale between pulls). OCSP is a live Status query.
+- **Hashing strength chain:** MD5 (broken) → SHA-1 (broken) → SHA-256 / SHA-3 (current minimum) → Argon2 / bcrypt / scrypt (password-specific slow hashes). Never use MD5 or SHA-1 for new work.
 
 ### D.4 Daily integration schedule (overlay on the 10-day cram)
 

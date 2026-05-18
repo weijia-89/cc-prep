@@ -62,7 +62,7 @@
 <p><strong>Source corpus body-read:</strong> ISC2 CC Exam Outline (canon), NIST SP 800-12r1 (Intro to Infosec), NIST SP 800-34r1 (Contingency Planning), NIST SP 800-41r1 (Firewalls), NIST SP 800-61r3 (IR, April 2025, replaces r2), NIST SP 800-63B (Authentication), NIST SP 800-77r1 (IPsec VPNs), NIST SP 800-115 (Security Testing), NIST SP 800-53r5 (Controls), OWASP Top 10:2025.</p>
 <p><strong>Style note:</strong> every initialism is defined on first use in body text. See <code>glossary.md</code> for the consolidated reference.</p>
 <hr />
-<h2 id="part-1-security-principles-domain-1-isc2-weight-26">Part 1 - Security Principles (Domain 1, ISC2 weight ~26%)</h2>
+<h2 id="part-1-security-principles-domain-1-isc2-weight-26" data-notable-anchor="corpus-guide-part-1-security-principles-domain-1-isc2-weight-26">Part 1 - Security Principles (Domain 1, ISC2 weight ~26%)</h2>
 <blockquote>
 <p><strong>Memory anchors (palace Room 1: Foyer, Domain 1).</strong> Pick a foyer or entryway you know intimately. List 5-6 distinct loci in order: door, mat, hooks or coat rack, mirror, side table, shelf, or whatever your foyer actually has. For each Domain 1 anchor below, choose your own image to place at one locus; vivid and personal beats clever. Capture each choice as a gutter note.</p>
 <ul>
@@ -147,6 +147,7 @@
 <li><strong>Compensating</strong> (alternative when primary control infeasible - extra logging when MFA not possible)</li>
 <li><strong>Recovery</strong> (restores operations - backups, failover sites)</li>
 </ul>
+<p>Memory anchor: <strong>PDC + 3 helpers</strong>. Preventive, Detective, and Corrective form a before-during-after timeline. The three helpers are Deterrent (psychological-before), Compensating (workaround when the primary control is infeasible), and Recovery (restore).</p>
 <h3 id="14-isc2-code-of-ethics">1.4 ISC2 Code of Ethics</h3>
 <blockquote>
 <p><strong>Anchor reminder (Room 1 locus).</strong> Pick one image that captures <strong>PASA canon order</strong> (Protect society first, Act honorably, Service to principals, Advance the profession last; earlier canons win when they conflict). Place it at a Foyer locus; capture as gutter note.</p>
@@ -207,7 +208,7 @@
 </table>
 <p>Memory anchor: <strong>R-P-S-P-G-B</strong> is the hierarchy. Regulations are external; policy/standards/procedures are mandatory internal; guidelines are recommended only.</p>
 <hr />
-<h2 id="part-2-business-continuity-disaster-recovery-incident-response-domain-2-isc2-weight-10">Part 2 - Business Continuity, Disaster Recovery, Incident Response (Domain 2, ISC2 weight ~10%)</h2>
+<h2 id="part-2-business-continuity-disaster-recovery-incident-response-domain-2-isc2-weight-10" data-notable-anchor="corpus-guide-part-2-business-continuity-disaster-recovery-incident-response-domain-2-isc2-weight-10">Part 2 - Business Continuity, Disaster Recovery, Incident Response (Domain 2, ISC2 weight ~10%)</h2>
 <blockquote>
 <p><strong>Memory anchors (palace Room 2: Living Room, Domain 2).</strong> Pick a living room you know. List 5 distinct loci in walkthrough order: couch, TV, fireplace, coffee table, bookshelf, or whatever your room actually has. For each Domain 2 anchor below, choose your own image to place at one locus; vivid and personal beats clever. Capture each choice as a gutter note.</p>
 <ul>
@@ -344,6 +345,13 @@
 </tbody>
 </table>
 <p>Trade-off: hot site = fast recovery, high cost. Cold site = slow recovery, low cost.</p>
+<p><strong>Backup types (ISC2 outline 2.2).</strong> Memory anchor: <strong>FID</strong> = Full / Incremental / Differential, in order of backup size and ease of restore.</p>
+<ul>
+<li><strong>Full backup</strong> - everything every time. Largest backup file; simplest restore (one tape).</li>
+<li><strong>Incremental backup</strong> - only what changed since the LAST backup of any type. Smallest daily backup; complex restore (last full plus every incremental since).</li>
+<li><strong>Differential backup</strong> - only what changed since the LAST FULL backup. Medium size, growing daily; restore needs only two tapes (last full plus most recent differential).</li>
+</ul>
+<p>Restore heuristic: <strong>incremental is many tapes; differential is two.</strong> Incremental backups are cheapest to make and most expensive to restore; differential lands in the middle.</p>
 <h3 id="25-bcpdrp-testing-five-test-types-in-increasing-rigor">2.5 BCP/DRP testing - five test types in increasing rigor</h3>
 <ol>
 <li><strong>Checklist (review)</strong> - read through the plan, verify completeness. Lowest cost, lowest realism.</li>
@@ -396,7 +404,7 @@
 </ol>
 <p>Image disks <strong>before</strong> rebooting, or you lose RAM.</p>
 <hr />
-<h2 id="part-3-access-control-concepts-domain-3-isc2-weight-22">Part 3 - Access Control Concepts (Domain 3, ISC2 weight ~22%)</h2>
+<h2 id="part-3-access-control-concepts-domain-3-isc2-weight-22" data-notable-anchor="corpus-guide-part-3-access-control-concepts-domain-3-isc2-weight-22">Part 3 - Access Control Concepts (Domain 3, ISC2 weight ~22%)</h2>
 <blockquote>
 <p><strong>Memory anchors (palace Room 3: Bedroom, Domain 3).</strong> Pick a bedroom you know. List 5 distinct loci in order: bed posts, closet, dresser, window, nightstand, or whatever your bedroom actually has. For each Domain 3 anchor below, choose your own image to place at one locus; vivid and personal beats clever. Capture each choice as a gutter note.</p>
 <ul>
@@ -410,7 +418,7 @@
 </blockquote>
 <p>Wei is at 75%. Moderate weight.</p>
 <h3 id="31-physical-access-controls">3.1 Physical access controls</h3>
-<p><strong>Layered defense (defense in depth physical):</strong> perimeter → building → floor → room → cabinet → device.</p>
+<p><strong>Layered defense (defense in depth physical):</strong> perimeter → building → floor → room → cabinet → device. Memory anchor: <strong>PBFRCD</strong> (Perimeter / Building / Floor / Room / Cabinet / Device); outside-in, biggest to smallest.</p>
 <p><strong>Common physical controls ISC2 names:</strong></p>
 <ul>
 <li><strong>Badge systems</strong> - RFID (radio-frequency identification), proximity, smart card. Lost badges must be revocable.</li>
@@ -498,7 +506,7 @@
 <p><strong>Federation</strong> - SSO across organizational boundaries via trust relationships. Standards: SAML (Security Assertion Markup Language), OAuth 2.0, OpenID Connect (OIDC), Kerberos (for intranet).</p>
 <p><strong>Risk of SSO:</strong> if the SSO credential is compromised, attacker gets all linked applications. Mitigate with MFA on the SSO login.</p>
 <hr />
-<h2 id="part-4-network-security-domain-4-isc2-weight-24-depth-pass">Part 4 - Network Security (Domain 4, ISC2 weight ~24%) - DEPTH PASS</h2>
+<h2 id="part-4-network-security-domain-4-isc2-weight-24-depth-pass" data-notable-anchor="corpus-guide-part-4-network-security-domain-4-isc2-weight-24-depth-pass">Part 4 - Network Security (Domain 4, ISC2 weight ~24%) - DEPTH PASS</h2>
 <blockquote>
 <p><strong>Memory anchors (palace Room 4: Kitchen, Domain 4 - YOUR WEAKEST, MAKE THIS VIVID).</strong> Pick a kitchen you know. List 5 distinct loci in order: pantry shelves, fridge door, stove burners, spice rack, attack-jars shelf, or whatever your kitchen actually has. For each Domain 4 anchor below, choose your own image to place at one locus; vivid and personal beats clever. Capture each choice as a gutter note.</p>
 <ul>
@@ -771,6 +779,7 @@
 </tbody>
 </table>
 <p><strong>Memory pattern:</strong> the secure-TLS variant typically increments the cleartext port (HTTP 80 → HTTPS 443, but the pattern is not always +363). Memorize the ones above.</p>
+<p><strong>DHCP handshake (DORA).</strong> Discover (client broadcasts looking for a server) → Offer (server proposes a lease) → Request (client picks one server) → Acknowledge (server confirms). Same letters as the cartoon explorer. Ports 67 server, 68 client.</p>
 <p><strong>TCP vs UDP:</strong></p>
 <ul>
 <li><strong>TCP (Transmission Control Protocol)</strong> - connection-oriented, reliable, three-way handshake (SYN → SYN/ACK → ACK), in-order delivery, retransmission. Slower.</li>
@@ -935,7 +944,7 @@
 <li><strong>MOU/MOA</strong> - agreements with backup vendors, ISPs, cloud providers.</li>
 </ul>
 <hr />
-<h2 id="part-5-security-operations-domain-5-isc2-weight-18">Part 5 - Security Operations (Domain 5, ISC2 weight ~18%)</h2>
+<h2 id="part-5-security-operations-domain-5-isc2-weight-18" data-notable-anchor="corpus-guide-part-5-security-operations-domain-5-isc2-weight-18">Part 5 - Security Operations (Domain 5, ISC2 weight ~18%)</h2>
 <blockquote>
 <p><strong>Memory anchors (palace Room 5: Bathroom, Domain 5).</strong> Pick a bathroom you know. List 5 distinct loci in order: sink, medicine cabinet, bathtub, mirror, shower curtain, or whatever your bathroom actually has. For each Domain 5 anchor below, choose your own image to place at one locus; vivid and personal beats clever. Capture each choice as a gutter note.</p>
 <ul>
@@ -977,7 +986,7 @@
 <li><strong>Diffie-Hellman (DH)</strong> - key exchange, not encryption. Establishes a shared secret over a public channel.</li>
 <li><strong>DSA / ECDSA</strong> - digital signatures.</li>
 </ul>
-<p><strong>Use patterns:</strong></p>
+<p><strong>Use patterns.</strong> Memory anchor: <strong>public to lock, private to prove.</strong> Recipient's public key locks the data (confidentiality); the sender's private key signs it (authenticity, non-repudiation). Symmetric keys never prove identity because both parties hold the same secret.</p>
 <ul>
 <li>Encrypt with <strong>recipient's public key</strong> → only their private key decrypts (confidentiality).</li>
 <li>Sign with <strong>your private key</strong> → anyone with your public key can verify (authenticity, non-repudiation).</li>
@@ -1003,6 +1012,7 @@
 <li><strong>CRL (Certificate Revocation List)</strong> - list of revoked certs.</li>
 <li><strong>OCSP (Online Certificate Status Protocol)</strong> - real-time revocation check.</li>
 </ul>
+<p>Memory anchor: <strong>L for List, S for Status.</strong> CRL is a downloadable List of revoked certs (stale between pulls). OCSP is a live Status query (current to the second).</p>
 <h3 id="53-data-handling-lifecycle">5.3 Data handling lifecycle</h3>
 <p><strong>Classification.</strong> Label data by sensitivity. Common scheme: Public, Internal, Confidential, Restricted. Government: Unclassified, Confidential, Secret, Top Secret.</p>
 <p><strong>Labeling.</strong> Mark data with its classification (header, watermark, metadata).</p>
@@ -1065,7 +1075,7 @@
 </ul>
 <p><strong>Cadence:</strong> annual training mandatory; quarterly phishing simulations; new-hire training within first week.</p>
 <hr />
-<h2 id="appendix-a-quick-reference-numbers-and-tables">Appendix A - Quick-reference numbers and tables</h2>
+<h2 id="appendix-a-quick-reference-numbers-and-tables" data-notable-anchor="corpus-guide-appendix-a-quick-reference-numbers-and-tables">Appendix A - Quick-reference numbers and tables</h2>
 <h3 id="cia-triad-expanded">CIA triad expanded</h3>
 <table>
 <thead>
@@ -1125,10 +1135,22 @@
 </ul>
 <h3 id="hashing-algorithms-safe-unsafe">Hashing algorithms safe / unsafe</h3>
 <p>Safe: SHA-256, SHA-3, bcrypt, scrypt, Argon2. Avoid: MD5, SHA-1.</p>
+<p>Memory anchor: <strong>MD5 → SHA-1 → SHA-256 / SHA-3 → Argon2 / bcrypt / scrypt.</strong> The chain reads broken → broken → current minimum → password-specific slow hash. MD5 and SHA-1 collide and must not be used for new work; SHA-256 and SHA-3 are the current general-purpose minimum; the slow hashes are deliberately expensive for password storage.</p>
 <h3 id="data-destruction">Data destruction</h3>
 <p>Clear (overwrite) → Purge (degauss, advanced overwrite) → Destroy (physical).</p>
 <hr />
-<h2 id="appendix-b-high-frequency-miss-patterns">Appendix B - High-frequency miss patterns</h2>
+<h2 id="appendix-b-high-frequency-miss-patterns" data-notable-anchor="corpus-guide-appendix-b-high-frequency-miss-patterns">Appendix B - High-frequency miss patterns</h2>
+<blockquote>
+<p><strong>Memory anchors for Appendix B miss patterns.</strong> Each of the 15 patterns
+below corresponds to a piece of content you already anchored in your
+palace (D.2). Walk the relevant room, find the existing locus for the
+concept, and add ONE secondary detail at that locus that captures the
+miss-pattern trap (the disambiguation, the rule, the off-by-one). For
+example: at the Bedroom four-poster bed locus where DAC/MAC/RBAC/ABAC
+live, imagine a small sign on the MAC post that reads &quot;Mandatory != Media&quot;
+for pattern 1. Two minutes per pattern; 30 minutes total across the week.</p>
+<p>See Appendix D.2 for the palace map and D.2.1 for the pre-built fallback.</p>
+</blockquote>
 <p>These are the concepts that consistently trip CC candidates. Drill these.</p>
 <ol>
 <li><strong>MAC</strong> - Mandatory Access Control vs Media Access Control. Read the question twice.</li>
@@ -1148,7 +1170,7 @@
 <li><strong>Default deny</strong> is best practice; default allow is unsafe.</li>
 </ol>
 <hr />
-<h2 id="appendix-c-day-of-exam-reminders">Appendix C - Day-of-exam reminders</h2>
+<h2 id="appendix-c-day-of-exam-reminders" data-notable-anchor="corpus-guide-appendix-c-day-of-exam-reminders">Appendix C - Day-of-exam reminders</h2>
 <ul>
 <li>Read every question twice. ISC2 likes &quot;BEST&quot; and &quot;MOST&quot; answers; multiple options may be technically correct.</li>
 <li>If two answers seem equally good, pick the one that's more specific or more aligned with ISC2 doctrine (NIST canon).</li>
@@ -1157,7 +1179,7 @@
 <li>Bring photo ID. Arrive 30 minutes early. No notes, no phone in the testing room.</li>
 </ul>
 <hr />
-<h2 id="appendix-d-memory-and-recall-techniques-palamedes-graded">Appendix D - Memory and recall techniques (palamedes-graded)</h2>
+<h2 id="appendix-d-memory-and-recall-techniques-palamedes-graded" data-notable-anchor="corpus-guide-appendix-d-memory-and-recall-techniques-palamedes-graded">Appendix D - Memory and recall techniques (palamedes-graded)</h2>
 <p>This appendix is built on a palamedes research pass against two recent peer-reviewed sources (one 2025 systematic review and meta-analysis on the method of loci, one 2025 state-of-the-art review on retrieval practice). Effect sizes and methodological caveats are tagged.</p>
 <p><strong>Headline:</strong> four techniques carry most of the load for a 13-day cram on heterogeneous rote-plus-application content: retrieval practice, spaced repetition, method of loci, and dual coding. Three more (interleaving, generation effect, sleep consolidation) compound the gains. Mnemonics and a memory palace handle the rote bedrock (port numbers, OSI layers, IR phase order, recovery-site ladder). Practice questions handle application-level transfer.</p>
 <h3 id="d1-evidence-summary-load-bearing-claims-tagged">D.1 Evidence summary (load-bearing claims tagged)</h3>
@@ -1252,6 +1274,7 @@ Memory consolidates during sleep, particularly during slow-wave and REM phases. 
 <li><strong>Five fingers</strong> authentication factors: Know (pinky), Have (thumb), Are (index), Where (ring), Do (middle).</li>
 <li><strong>SLE x ARO = ALE</strong> the only quantitative risk equation the exam asks.</li>
 <li><strong>RPS-PGB</strong> policy hierarchy: Regulation &gt; Policy &gt; Standard / Procedure &gt; Guideline / Baseline.</li>
+<li><strong>PDC + 3 helpers</strong> control functions: Preventive / Detective / Corrective form a before-during-after timeline. The three helpers are Deterrent (psychological-before), Compensating (workaround), and Recovery (restore).</li>
 </ul>
 <p><strong>Domain 2 BC, DR, IR</strong></p>
 <ul>
@@ -1261,6 +1284,7 @@ Memory consolidates during sleep, particularly during slow-wave and REM phases. 
 <li><strong>CTSPF</strong> BCP test types weakest to strongest: Checklist, Tabletop, Simulation, Parallel, Full Cutover.</li>
 <li><strong>Order of volatility:</strong> RAM &gt; network state &gt; running processes &gt; disk &gt; archives. The &quot;fast stuff first&quot; rule.</li>
 <li><strong>RTO + WRT &lt;= MTD</strong> the recovery-objective inequality. RPO is independent; it measures data not time.</li>
+<li><strong>FID</strong> backup types: Full (everything, one-tape restore), Incremental (since last backup of any type, many tapes to restore), Differential (since last full, two tapes to restore). Heuristic: incremental is cheapest to make and most expensive to restore.</li>
 </ul>
 <p><strong>Domain 3 Access Control</strong></p>
 <ul>
@@ -1268,6 +1292,7 @@ Memory consolidates during sleep, particularly during slow-wave and REM phases. 
 <li><strong>FRR = Type 1 = false rejection</strong> (legitimate user denied, annoying). <strong>FAR = Type 2 = false acceptance</strong> (impostor admitted, dangerous). <strong>CER = crossover</strong>, lower is better.</li>
 <li><strong>AAA</strong>: Authentication (who you are), Authorization (what you can do), Accounting (what you did). Add <strong>I</strong> for Identification (claiming you are someone) at the front when ISC2 wants IAAA.</li>
 <li><strong>Need-to-know AND clearance.</strong> Both required. Clearance is the ceiling; need-to-know is the specific item.</li>
+<li><strong>PBFRCD</strong> layered physical defense: Perimeter / Building / Floor / Room / Cabinet / Device. Outside-in, biggest to smallest.</li>
 </ul>
 <p><strong>Domain 4 Network Security</strong></p>
 <ul>
@@ -1287,6 +1312,8 @@ Memory consolidates during sleep, particularly during slow-wave and REM phases. 
 </li>
 <li><strong>Private IPv4:</strong> 10/8 (Class A), 172.16/12 (Class B), 192.168/16 (Class C). Memorize as &quot;ten - one seventy two dot sixteen - one ninety two dot one sixty eight.&quot;</li>
 <li><strong>WiFi escalation:</strong> WEP (broken), WPA (transitional), WPA2 (AES-CCMP current minimum), WPA3 (SAE / Dragonfly, forward secrecy).</li>
+<li><strong>DORA</strong> DHCP handshake: Discover (client broadcast) / Offer (server proposes) / Request (client picks) / Acknowledge (server confirms). Ports 67 server, 68 client.</li>
+<li><strong>SYN / SYN-ACK / ACK</strong> TCP three-way handshake. Knock, answer, enter.</li>
 </ul>
 <p><strong>Domain 5 Security Operations</strong></p>
 <ul>
@@ -1295,6 +1322,9 @@ Memory consolidates during sleep, particularly during slow-wave and REM phases. 
 <li><strong>CPD</strong> NIST 800-88 sanitization, weakest to strongest: Clear, Purge, Destroy. Clear = logical overwrite. Purge = degauss or cryptographic erase. Destroy = physical shred or incinerate.</li>
 <li><strong>PKI components</strong>: CA issues, RA verifies identity, certificate binds key to identity, CRL or OCSP checks revocation. Sequence: identity goes to RA, RA tells CA, CA issues cert, end users check CRL or OCSP.</li>
 <li><strong>SIEM / SOAR / SOC</strong>: SIEM aggregates logs and correlates (the platform). SOAR automates response playbooks (the orchestration layer). SOC is the human team that runs both (the people). Don't confuse SOC with SoC = System on a Chip.</li>
+<li><strong>Public to lock, private to prove.</strong> Recipient's public key locks data (confidentiality). Sender's private key signs (authenticity, non-repudiation). Symmetric keys never prove identity.</li>
+<li><strong>L for List, S for Status.</strong> CRL is a downloadable List of revoked certs (stale between pulls). OCSP is a live Status query.</li>
+<li><strong>Hashing strength chain:</strong> MD5 (broken) → SHA-1 (broken) → SHA-256 / SHA-3 (current minimum) → Argon2 / bcrypt / scrypt (password-specific slow hashes). Never use MD5 or SHA-1 for new work.</li>
 </ul>
 <h3 id="d4-daily-integration-schedule-overlay-on-the-10-day-cram">D.4 Daily integration schedule (overlay on the 10-day cram)</h3>
 <table>
