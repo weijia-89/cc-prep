@@ -32,7 +32,7 @@
 html { font-size: 16px; }
 
 body {
-  font-family: var(--serif);
+  font-family: var(--sans);
   line-height: 1.65;
   color: var(--ink);
   background: var(--paper);
@@ -44,15 +44,15 @@ body {
 }
 
 main {
-  max-width: 36em;
+  max-width: 50em;
   margin: 2.5em auto 3em auto;
   padding: 0 1.5em;
   position: relative;
 }
 
 /* On wide viewports, allow margin notes to float into a right gutter. */
-@media (min-width: 1050px) {
-  main { margin-left: 18em; margin-right: auto; max-width: 36em; }
+@media (min-width: 1100px) {
+  main { margin-left: 18em; margin-right: auto; max-width: 50em; }
 }
 
 /* Margin notes (Tufte-style asides). Right gutter on wide screens,
@@ -76,7 +76,7 @@ aside.margin-note strong {
   font-weight: 600;
 }
 
-@media (min-width: 1050px) {
+@media (min-width: 1100px) {
   aside.margin-note {
     float: right;
     clear: right;
@@ -122,7 +122,7 @@ pre {
 pre code { background: transparent; padding: 0; color: var(--ink); }
 
 h1, h2, h3, h4 {
-  font-family: var(--serif);
+  font-family: var(--sans);
   color: var(--ink);
   font-feature-settings: "kern" 1, "liga" 1, "lnum" 1;
 }
@@ -170,7 +170,7 @@ h4 {
 
 /* Hero / header block */
 .hero {
-  max-width: 32em;
+  max-width: 46em;
   margin: 0 0 2.5em 0;
   padding: 0 0 1.5em 0;
   border-bottom: 1px solid var(--sage);
@@ -192,7 +192,7 @@ h4 {
   letter-spacing: -0.015em;
 }
 .hero__subtitle {
-  font-family: var(--serif);
+  font-family: var(--sans);
   font-size: 1.05rem;
   font-style: italic;
   color: var(--ink-soft);
@@ -437,7 +437,7 @@ aside.user-note.edit {
   background: #FFF8E1;
 }
 
-@media (min-width: 1050px) {
+@media (min-width: 1100px) {
   aside.user-note {
     float: left;
     clear: left;
@@ -531,7 +531,7 @@ button.add-note-btn:hover {
   border-style: solid;
 }
 
-@media (min-width: 1050px) {
+@media (min-width: 1100px) {
   button.add-note-btn {
     float: left;
     clear: left;
@@ -553,7 +553,7 @@ form.note-form {
   margin: 0.4em 0 1em 0;
   display: block;
 }
-@media (min-width: 1050px) {
+@media (min-width: 1100px) {
   form.note-form--add {
     float: left;
     clear: left;
