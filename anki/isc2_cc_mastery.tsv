@@ -1,0 +1,44 @@
+basic	CIA triad — three legs (one line each)	Confidentiality = who can read; Integrity = whether it changed; Availability = whether you can use it when needed.	d1 cia mnemonic
+cloze	{{c1::Confidentiality}} = read control; {{c2::Integrity}} = change trust; {{c3::Availability}} = timely use.	Story: letter / altered / mailbox opens on schedule.	d1 cia
+scenario	Ransomware encrypts files; attacker exfiltrated copies first. Which CIA legs?	Availability (can't use files), Integrity (ciphertext), Confidentiality if data left the building.	d1 cia scenario
+basic	IAAA order (four words)	Identification → Authentication → Authorization → Accountability.	d1 iaaa
+scenario	Two passwords on one account — MFA?	No — same factor category (knowledge).	d1 iaaa scenario
+basic	SLE and ALE formulas	SLE = Asset Value × Exposure Factor; ALE = SLE × Annualized Rate of Occurrence (ARO).	d1 risk
+scenario	$200k asset, EF 25%, ARO 2 — ALE?	SLE $50k; ALE $100k.	d1 risk scenario
+basic	Risk treatments AMTA	Avoid, Mitigate, Transfer, Accept.	d1 risk mnemonic
+basic	Control categories (three)	Technical, Administrative/Managerial, Physical.	d1 controls
+basic	Control functions (six) — preventive/detective/corrective plus?	Preventive, Detective, Corrective; also Deterrent, Recovery, Compensating, Directive.	d1 controls
+scenario	Guard watching live CCTV — functional control?	Detective (while monitoring). Visible cameras alone = deterrent.	d1 controls scenario
+basic	ISC2 Code of Ethics — canon 1 (phrase)	Protect society, the common good, necessary public trust and confidence, and infrastructure.	d1 ethics
+basic	When ISC2 canons conflict — who wins?	Lower-numbered canon wins: society → honor → principals → profession.	d1 ethics
+basic	Governance: which tier is optional?	Guideline only — policy, standard, and procedure are mandatory.	d1 governance
+basic	CIA story mnemonic (type: story/link)	Read the letter (C), check it wasn't altered (I), mailbox opens on schedule (A).	d1 mnemonic
+basic	BC vs DR vs IR — nest in one sentence	BC keeps the business running; DR restores IT after disaster; IR handles security events (innermost).	d2 bc-dr-ir
+basic	RPO vs RTO (plain English)	RPO = how much data you can afford to lose; RTO = how fast service must return.	d2 metrics
+basic	MTD meaning	Maximum Tolerable Downtime — longest outage the business can survive.	d2 metrics
+scenario	Leadership asks "how much reporting can we lose?" — which metric?	RPO (recovery point). "When are we back?" = RTO.	d2 metrics scenario
+basic	Backup types — full vs incremental vs differential	Full = everything; Incremental = since last backup of any type; Differential = since last full.	d2 backup
+basic	DR site tiers — hot / warm / cold (RTO trend)	Hot ≈ minutes; Warm = hours; Cold = days; offsite tapes = weeks.	d2 dr-sites
+basic	NIST IR phases — story mnemonic	Prep kit → smell smoke → close doors → remove cause → reopen kitchen → update runbook.	d2 ir mnemonic
+cloze	NIST IR order: Preparation → {{c1::Detection & Analysis}} → {{c2::Containment}} → {{c3::Eradication}} → Recovery → Post-incident.	Exam trap: contain before eradicate.	d2 ir
+scenario	Phishing at 9 a.m. — which program owns the playbook?	Incident Response (inside BC/DR nesting).	d2 ir scenario
+basic	Access control principles (four)	Least privilege, Separation of duties, Need-to-know, Defense in depth.	d3 principles
+basic	DAC vs MAC vs RBAC vs ABAC — who decides?	DAC = owner; MAC = system labels; RBAC = job role; ABAC = attributes/rules.	d3 models
+scenario	Google Doc owner sets viewer vs commenter — model?	DAC (discretionary). Enterprise group policy adds RBAC.	d3 models scenario
+basic	MFA rule	Two or more different factor categories: knowledge, possession, inherence — not two passwords.	d3 auth
+basic	Physical layers (outside → inside)	Perimeter → facility → internal secure areas → workstation.	d3 physical
+basic	OSI — ARP spoofing layer?	Layer 2 Data Link (not "data in general").	d4 osi mnemonic
+basic	OSI top-down mnemonic (L7→L1)	All People Seem To Need Data Processing — Application, Presentation, Session, Transport, Network, Data Link, Physical.	d4 osi mnemonic
+basic	OSI bottom-up (L1→L7)	Please Do Not Throw Sausage Pizza Away.	d4 osi mnemonic
+scenario	110 vs 995 — which is encrypted mail?	995 = POP3S (high port TLS partner pattern).	d4 ports scenario
+basic	SSH port and why it's special	Port 22 — designed secure; replaces Telnet (23) and carries SFTP/SCP.	d4 ports
+basic	TCP three-way handshake order	SYN → SYN/ACK → ACK.	d4 tcp
+scenario	DDoS against auth endpoint — CIA leg?	Availability.	d4 attacks scenario
+basic	Cloud shared responsibility — you always own	Your data and access policies; provider owns hypervisor/physical per model.	d4 cloud
+basic	Symmetric vs asymmetric vs hashing jobs	Symmetric = bulk encrypt; Asymmetric = key exchange/signatures; Hashing = integrity (one-way).	d5 crypto
+scenario	Verify downloaded installer integrity — tool?	Cryptographic hash (SHA-256) — not reversible encryption.	d5 crypto scenario
+basic	Data destruction tiers (escalating)	Clear → Purge → Destroy.	d5 data
+basic	Why NTP is a security control	Synchronized clocks enable log correlation and forensics.	d5 logging
+scenario	Tailgating vs piggybacking	Tailgating = no consent; piggybacking = authorized person holds door.	d5 social-engineering scenario
+basic	Social engineering — pretexting defining feature	Fabricated scenario / false identity giving the request a plausible reason.	d5 social-engineering
+scenario	Fake IT calls for password "security check" — technique?	Pretexting (+ often vishing if phone).	d5 social-engineering scenario

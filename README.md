@@ -4,6 +4,18 @@ ISC2 Certified in Cybersecurity (CC) cram tool. A markdown study guide and ten d
 
 Exam date: 2026-05-30. The tool ships within the cram window.
 
+## ISC2 CC Mastery (kalr Stage D)
+
+| Path | Purpose |
+|------|---------|
+| [`ISC2_CC_Mastery.html`](ISC2_CC_Mastery.html) | Primary cram site (textbook + flashcards + practice exam) — [live on Pages](https://weijia-89.github.io/cc-prep/ISC2_CC_Mastery.html) |
+| [`README_prep.md`](README_prep.md) | Prep workflow, waves, metrics key |
+| [`anki/`](anki/) | `ISC2_CC_Mastery.apkg` + TSV source |
+| `study_guide/daily/` | Legacy 10-day solarpunk pages (still available) |
+
+Root `index.html` redirects to the Mastery guide.
+
+
 ## Quick start
 
 ```bash
