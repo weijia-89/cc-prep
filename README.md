@@ -8,12 +8,16 @@ Exam date: 2026-05-30. The tool ships within the cram window.
 
 | Path | Purpose |
 |------|---------|
-| [`ISC2_CC_Mastery.html`](ISC2_CC_Mastery.html) | Primary cram site (textbook + flashcards + practice exam) — [live on Pages](https://weijia-89.github.io/cc-prep/ISC2_CC_Mastery.html) |
+| [`ISC2_CC_Mastery.html`](ISC2_CC_Mastery.html) | Primary cram site (textbook + flashcards + practice exam) — **private repo only** (no public Pages; open locally or from `~/Projects/localonly/study/isc2-cc/`) |
 | [`README_prep.md`](README_prep.md) | Prep workflow, waves, metrics key |
 | [`anki/`](anki/) | `ISC2_CC_Mastery.apkg` + TSV source |
 | `study_guide/daily/` | Legacy 10-day solarpunk pages (still available) |
 
 Root `index.html` redirects to the Mastery guide.
+## Hosting (private)
+
+`weijia-89/cc-prep` is a **private** repository. Public GitHub Pages was **disabled** 2026-05-28. Do not republish to `*.github.io` without access control.
+
 
 
 ## Quick start
